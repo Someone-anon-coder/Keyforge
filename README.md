@@ -1,8 +1,70 @@
 # Keyforge
 
-An offline password generator for your laptop and phone. You type your name and a master secret, and every site's password is worked out from those. No password, name, secret or site list is stored anywhere. The algorithm is described in [ALGORITHM.md](ALGORITHM.md).
+An offline, stateless password generator for your laptop and phone.
 
-## Files
+You type your name and one master secret, and Keyforge works out a different strong password for every site from those two things. Nothing is stored: no vault, no account, no sync, no list of your sites. If you know the name and secret, you can get every password back on any device.
+
+**Try it:** https://keyforge.aayush-c2684.workers.dev
+
+## How it works
+
+1. Your name and master secret go through Argon2id (64 MiB, 3 passes) to make a master key. This takes about a second and is the only slow step.
+2. For each site, the master key is combined with the site name, an optional login and a counter using HMAC-SHA256. The result is turned into a password of the length and character types you choose, with no bias towards any character.
+3. The same inputs always give the same password. Change the counter to get a new one for a site.
+
+The full specification is in [ALGORITHM.md](ALGORITHM.md). Because it's written down, and because [`tools/reference.py`](tools/reference.py) is a second implementation in Python that is tested against the app, your passwords don't depend on this app staying online.
+
+## Using it
+
+1. Open the app and type your **name** and **master secret**. Three fingerprint words appear; if they differ from last time, you mistyped.
+2. Type the **site** (`github.com`, or paste a full address; they give the same password).
+3. Optionally set a login, length, character types, or the counter.
+4. Copy the password. It is cleared from the clipboard after 30 seconds.
+
+**Choose a strong master secret.** Everything depends on it. Use six random words (for example, from [diceware](https://theworld.com/~reinhold/diceware.htm)), not something a person would pick. See [SECURITY.md](SECURITY.md) for how fast weak secrets fall.
+
+## Install
+
+Open the app once while online, then:
+
+- **Laptop (Chrome/Edge):** click the install icon at the right of the address bar.
+- **Android (Chrome):** menu, then **Install app** (or **Add to Home screen**).
+- **iPhone (Safari):** Share, then **Add to Home Screen**.
+
+After that it works in airplane mode. Install from a browser profile with no extensions, and choose **Never** if the browser offers to save the master secret.
+
+## Privacy and security
+
+- Everything runs on your device. The page's Content Security Policy blocks all network requests, so it can't send anything anywhere.
+- The master key is held in a Web Worker as a non-extractable key. The app locks after 5 minutes of inactivity, which destroys the key. The installed app then closes itself; in a browser tab the page reloads, and the browser may keep traces of the secret in memory until you close the tab.
+- A revealed password is hidden again when the app goes to the background.
+- The service worker checks every file against a SHA-256 hash and refuses tampered copies.
+
+Limits you should know about:
+
+- **A weak master secret defeats everything.** And unlike a vault, anyone who captures your secret (malware, a malicious keyboard or extension) gets every password; recovery means changing the secret and every site's password.
+- Phone and desktop **clipboard history** may keep copied passwords even after Keyforge clears the clipboard.
+- Whoever controls the hosting controls the app. If you run your own copy, give it its own origin and protect the account.
+
+[SECURITY.md](SECURITY.md) lists what was attacked, what held, what was fixed, and what can't be fixed in code.
+
+**Found a vulnerability?** Please use **Security → Report a vulnerability** on this repository rather than a public issue.
+
+## Run your own copy
+
+There's no build step, framework or runtime dependency; it's plain static files. A PWA has to be served over HTTPS to install.
+
+**It must be the only thing on its web address (origin).** Every GitHub Pages project of one account shares `https://<username>.github.io`, so another page there could read what you type. Use a host that gives each site its own origin, such as Cloudflare. GitHub Pages also ignores [`_headers`](_headers), so the extra security headers (`frame-ancestors 'none'`, `nosniff`, `Permissions-Policy`) wouldn't be sent.
+
+**Cloudflare** (what the live copy uses):
+
+1. In the dashboard: **Workers & Pages → Create application → Import a repository**, and pick your fork.
+2. Set **Build command** to `sh tools/build_site.sh` and keep **Deploy command** as `npx wrangler deploy`. [`wrangler.jsonc`](wrangler.jsonc) serves only the app files, plus `_headers`.
+3. Deploy, and turn on two-factor authentication for your Cloudflare and GitHub accounts.
+
+Locally: `npm run serve` serves the folder at http://localhost:8080.
+
+## Contributing
 
 | Path | What it is |
 |---|---|
@@ -11,63 +73,21 @@ An offline password generator for your laptop and phone. You type your name and 
 | `core.js` | The algorithm (pure functions, also used by the tests) |
 | `vendor/argon2.umd.min.js` | Argon2id from [hash-wasm](https://github.com/Daninet/hash-wasm) 4.12.0, MIT. SHA-256 `dcec617a2e1b700fa132d1583a186cb70611113395e869f2dd6cc82b415d3094` |
 | `sw.js`, `manifest.webmanifest`, `icons/` | Offline support and install |
-| `tools/stamp.py` | Writes every file's SHA-256 into `sw.js`; run it after any change |
-| `SECURITY.md` | What was attacked, what held, what was fixed, what's left |
-| `tools/reference.py` | A second, independent implementation in Python (`pip install argon2-cffi`) |
+| `tools/stamp.py` | Writes every file's SHA-256 into `sw.js` |
+| `tools/reference.py` | Independent Python implementation (`pip install argon2-cffi`) |
+| `tools/build_site.sh`, `wrangler.jsonc` | Builds the folder Cloudflare serves |
 | `tests/` | Unit tests, cross-implementation vectors, browser test |
-| `.github/workflows/` | CI (`ci.yml`) |
-| `_headers` | Security headers, applied by Cloudflare and Netlify |
-| `wrangler.jsonc`, `tools/build_site.sh` | Cloudflare deploy: serves only the app files |
 
-There's no build step, framework or npm dependency at runtime. Everything is plain files.
-
-## Put it online
-
-A PWA has to be served over HTTPS once before it can be installed. After that it runs fully offline.
-
-**It must be the only thing on its web address (origin).** Every GitHub Pages project of one account shares `https://<username>.github.io`. Any page on that origin can open Keyforge's window and read what you type, and SECURITY.md shows one of them rewriting its offline copy. So don't put it next to your other projects.
-
-**Recommended: Cloudflare.** It gives the app its own `https://<project>.<subdomain>.workers.dev` (or `.pages.dev`) and applies the security headers in [`_headers`](_headers) (`frame-ancestors 'none'`, `nosniff`, `Permissions-Policy`), which GitHub Pages ignores.
-
-1. Cloudflare dashboard, **Workers & Pages → Create application → Import a repository**, and pick this repository.
-2. Set **Build command** to `sh tools/build_site.sh` and leave **Deploy command** as `npx wrangler deploy`. [`wrangler.jsonc`](wrangler.jsonc) tells it to serve only the `_site/` folder that the script builds, which includes `_headers`.
-3. Deploy, and turn on two-factor authentication for the Cloudflare account. The live copy is at https://keyforge.aayush-c2684.workers.dev.
-
-(The older Pages flow also works: no build command, output directory `/`. It publishes the whole repository, including `tests/` and `tools/`.)
-
-Other safe options: a separate GitHub account or organisation used only for this, with a repository named `<that-name>.github.io`.
-
-GitHub Pages is not used for this repository: it shares an origin with the account's other Pages sites and ignores `_headers`.
-
-## CI
-
-[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on pushes to `main` and on pull requests: unit tests, a check that `sw.js` hashes are current (`python3 tools/stamp.py` must leave no diff), and the browser test.
-
-## Install
-
-- **Laptop (Chrome/Edge):** click the install icon at the right of the address bar.
-- **Android (Chrome):** menu, then **Install app** (or **Add to Home screen**).
-- **iPhone (Safari):** Share, then **Add to Home Screen**.
-
-Open it once while online. From then on it works in airplane mode.
-
-## Updating
-
-Change files, run `python3 tools/stamp.py`, and push. Installed copies pick up the new version the next time they open while online. **Never change anything in `core.js` that affects output.** Add a v2 alongside it instead, as ALGORITHM.md explains.
-
-## Tests
+After changing any served file, run `python3 tools/stamp.py` and commit the result; CI fails if `sw.js` is out of date. **Never change anything in `core.js` that affects output**, because that would change everyone's passwords. Add a v2 alongside it instead, as ALGORITHM.md explains.
 
 ```
-npm test                       # algorithm: 45 vectors from the Python version, normalisation, bias check
+npm test                       # algorithm: vectors from the Python version, normalisation, bias check
 npm run e2e                    # real browser: UI, CSP, copy, lock, offline reload (needs Playwright)
 python3 tools/make_vectors.py  # regenerate vectors from the Python implementation
 ```
 
-## Behaviour worth knowing
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs the unit tests, the `sw.js` check and the browser test on pushes to `main` and on pull requests.
 
-- The page's Content Security Policy blocks all network requests (`connect-src 'none'`), so the page itself can't send anything anywhere.
-- The app locks itself after 5 minutes without use. Locking destroys the master key. The installed app also closes itself; in a browser tab it reloads instead, and the browser may keep traces of the secret in memory until you close the tab. Closing clears everything.
-- Copying clears the clipboard after 30 seconds, but only if Keyforge is still open and focused. Phones may keep their own clipboard history.
-- The browser may offer to save the master secret. Choose **Never**.
-- Anyone who can push to your repository can change the app. Keep two-factor authentication on that GitHub account.
-- Found a vulnerability? Use **Security → Report a vulnerability** on GitHub rather than a public issue.
+## License
+
+MIT, as declared in [package.json](package.json). Argon2 comes from hash-wasm, also MIT ([licence](vendor/hash-wasm.LICENSE)).
