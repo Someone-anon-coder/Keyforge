@@ -15,6 +15,8 @@ An offline password generator for your laptop and phone. You type your name and 
 | `SECURITY.md` | What was attacked, what held, what was fixed, what's left |
 | `tools/reference.py` | A second, independent implementation in Python (`pip install argon2-cffi`) |
 | `tests/` | Unit tests, cross-implementation vectors, browser test |
+| `.github/workflows/` | CI (`ci.yml`) and GitHub Pages deploy (`pages.yml`) |
+| `_headers` | Security headers, applied by Cloudflare Pages and Netlify |
 
 There's no build step, framework or npm dependency at runtime. Everything is plain files.
 
@@ -22,10 +24,21 @@ There's no build step, framework or npm dependency at runtime. Everything is pla
 
 A PWA has to be served over HTTPS once before it can be installed. After that it runs fully offline.
 
-**It must be the only thing on its web address (origin).** Every GitHub Pages project of one account shares `https://<username>.github.io`. Any page on that origin can open Keyforge's window and read what you type, and SECURITY.md shows one of them rewriting its offline copy. So don't put it next to your other projects. Use one of these:
+**It must be the only thing on its web address (origin).** Every GitHub Pages project of one account shares `https://<username>.github.io`. Any page on that origin can open Keyforge's window and read what you type, and SECURITY.md shows one of them rewriting its offline copy. So don't put it next to your other projects.
 
-- **A separate GitHub account or organisation** used only for this, with a repository named `<that-name>.github.io`. Push this folder to `main`, then in **Settings → Pages** choose **Deploy from a branch**, `main`, `/ (root)`, and open `https://<that-name>.github.io/`.
-- **Cloudflare Pages:** create a project from the repository with no build command and output folder `/`. It gets its own `https://<project>.pages.dev`.
+**Recommended: Cloudflare Pages.** It gives the app its own `https://<project>.pages.dev` and applies the security headers in [`_headers`](_headers) (`frame-ancestors 'none'`, `nosniff`, `Permissions-Policy`), which GitHub Pages ignores.
+
+1. Cloudflare dashboard, **Workers & Pages → Create → Pages → Connect to Git**, and pick this repository and `main`.
+2. Leave the build command empty and set the output directory to `/`.
+3. Save and deploy. Turn on two-factor authentication for the Cloudflare account.
+
+Other safe options: a separate GitHub account or organisation used only for this, with a repository named `<that-name>.github.io`.
+
+**GitHub Pages for this repository** is set up by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) and deploys on every push to `main` at `https://someone-anon-coder.github.io/Keyforge/`. It shares an origin with the account's other Pages sites and ignores `_headers`, so treat it as a demo and don't use it for real passwords. The Content Security Policy and referrer policy are also set in `index.html`, so they still apply there.
+
+## CI
+
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on pushes to `main` and on pull requests: unit tests, a check that `sw.js` hashes are current (`python3 tools/stamp.py` must leave no diff), and the browser test.
 
 ## Install
 
@@ -54,3 +67,4 @@ python3 tools/make_vectors.py  # regenerate vectors from the Python implementati
 - Copying clears the clipboard after 30 seconds, but only if Keyforge is still open and focused. Phones may keep their own clipboard history.
 - The browser may offer to save the master secret. Choose **Never**.
 - Anyone who can push to your repository can change the app. Keep two-factor authentication on that GitHub account.
+- Found a vulnerability? Use **Security → Report a vulnerability** on GitHub rather than a public issue.
