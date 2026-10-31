@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Someone-anon-coder
 """Independent Python implementation of Keyforge algorithm v1 (see ALGORITHM.md).
 
 It shares no code with the web app, so it serves two purposes:

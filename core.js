@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Someone-anon-coder
 // Keyforge algorithm v1 — see ALGORITHM.md. Pure functions, no DOM.
 // Runs in browsers (Worker) and Node >= 20 (uses globalThis.crypto.subtle).
 // The Argon2id implementation is injected so this file has no imports.

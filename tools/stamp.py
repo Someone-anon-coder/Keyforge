@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Someone-anon-coder
 """Write the SHA-256 of every app file into sw.js and derive the cache name from them.
 Run after changing any file the app serves, then commit."""
 import hashlib, json, os, re

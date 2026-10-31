@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Someone-anon-coder
 import { LENGTH_CHOICES, DEFAULT_TEMPLATE, enc, normalizeSite, templateCode } from "./core.js";
 
 // Refuse to run inside another page's frame (a same-origin page could read the fields).

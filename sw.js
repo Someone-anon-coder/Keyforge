@@ -1,15 +1,17 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Someone-anon-coder
 // Cache-first service worker: after the first visit the app works with no network.
 // Every file is checked against the SHA-256 list below before it is served, so a
 // tampered cache (e.g. from another page on the same origin) is refused.
 // Don't edit the block below by hand: run `python3 tools/stamp.py` after changing any file.
 // STAMP-BEGIN
-const CACHE = "keyforge-0f6faa8d1469";
+const CACHE = "keyforge-9d05601b4755";
 const HASHES = {
   "index.html": "a021df78bf913c42abd77bb9a89646de8a7e52e20e922806f34e703561cb6c3d",
   "app.css": "8468394cf817df0ef85946dd7b80caee032bd70611a8d732e5eef541a120fa71",
-  "app.js": "37107ea482cc5f845a86118e601605d581e0f4db41986bfff45eba235814ff20",
-  "core.js": "2a4af514c5144119f2c3f742ccb08bff2f7b80bb43354e046ff25aa2bc0a50b7",
-  "worker.js": "5f3c8d7b0360a11d32e49ff76f6d0850eb8a4f21006f309731a9708bfa69a54a",
+  "app.js": "54cd94e3db5ab84dfc94f075880aba7fa838c6e2206c1ada2f9b919d24738dc3",
+  "core.js": "118cd421cd93a02cc401cb526b276cbca69cd358a6b1f32ad715e9d7e3916903",
+  "worker.js": "5701dc3eba5e3fb16e8ead3cd52bf96c2cfac55546df9d7d4580a8644e204cbe",
   "vendor/argon2.umd.min.js": "dcec617a2e1b700fa132d1583a186cb70611113395e869f2dd6cc82b415d3094",
   "manifest.webmanifest": "51877754793af2ed43f97b052e6d9e1b7b54430c4b07cfcb988c9fb2207cc70c",
   "icons/icon.svg": "4c721b900a426c78d2d80d77f084a4a9f9f0c1af5420d85ac805a504e7ea1435",

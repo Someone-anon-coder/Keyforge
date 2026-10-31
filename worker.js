@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Someone-anon-coder
 // Holds the master key. The key never leaves this worker; the page only
 // receives the fingerprint and finished passwords. On lock the page
 // terminates this worker, which unmaps its WASM memory and heap.

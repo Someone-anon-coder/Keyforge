@@ -1,4 +1,6 @@
 #!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Someone-anon-coder
 # Copy only the files the app serves into _site/ (used by Cloudflare and GitHub Pages).
 set -e
 cd "$(dirname "$0")/.."

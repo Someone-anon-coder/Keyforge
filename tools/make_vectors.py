@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Someone-anon-coder
 """Regenerate tests/vectors.json from the independent Python implementation."""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
