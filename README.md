@@ -16,7 +16,8 @@ An offline password generator for your laptop and phone. You type your name and 
 | `tools/reference.py` | A second, independent implementation in Python (`pip install argon2-cffi`) |
 | `tests/` | Unit tests, cross-implementation vectors, browser test |
 | `.github/workflows/` | CI (`ci.yml`) and GitHub Pages deploy (`pages.yml`) |
-| `_headers` | Security headers, applied by Cloudflare Pages and Netlify |
+| `_headers` | Security headers, applied by Cloudflare and Netlify |
+| `wrangler.jsonc`, `tools/build_site.sh` | Cloudflare deploy: serves only the app files |
 
 There's no build step, framework or npm dependency at runtime. Everything is plain files.
 
@@ -28,9 +29,11 @@ A PWA has to be served over HTTPS once before it can be installed. After that it
 
 **Recommended: Cloudflare Pages.** It gives the app its own `https://<project>.pages.dev` and applies the security headers in [`_headers`](_headers) (`frame-ancestors 'none'`, `nosniff`, `Permissions-Policy`), which GitHub Pages ignores.
 
-1. Cloudflare dashboard, **Workers & Pages → Create → Pages → Connect to Git**, and pick this repository and `main`.
-2. Leave the build command empty and set the output directory to `/`.
-3. Save and deploy. Turn on two-factor authentication for the Cloudflare account.
+1. Cloudflare dashboard, **Workers & Pages → Create application → Import a repository**, and pick this repository.
+2. Set **Build command** to `sh tools/build_site.sh` and leave **Deploy command** as `npx wrangler deploy`. [`wrangler.jsonc`](wrangler.jsonc) tells it to serve only the `_site/` folder that the script builds, which includes `_headers`.
+3. Deploy, and turn on two-factor authentication for the Cloudflare account. The app is served at `https://keyforge.<your-subdomain>.workers.dev`.
+
+(The older Pages flow also works: no build command, output directory `/`. It publishes the whole repository, including `tests/` and `tools/`.)
 
 Other safe options: a separate GitHub account or organisation used only for this, with a repository named `<that-name>.github.io`.
 

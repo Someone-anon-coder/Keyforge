@@ -23,10 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Assemble site
-        run: |
-          mkdir _site
-          cp index.html app.css app.js core.js worker.js sw.js manifest.webmanifest _site/
-          cp -r icons vendor _site/
+        run: sh tools/build_site.sh
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
