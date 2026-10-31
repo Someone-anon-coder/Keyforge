@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; style-src 'self'; img-src 'self' data:; manifest-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#EDF0F3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151A21" media="(prefers-color-scheme: dark)">
+<title>Keyforge</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="stylesheet" href="app.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<main>
+  <header class="top">
+    <h1>Keyforge</h1>
+    <button type="button" id="lock" class="quiet" hidden>Lock</button>
+  </header>
+
+  <form id="unlock-form" class="panel" autocomplete="off" novalidate>
+    <p class="lede">Passwords are worked out from what you type here. Nothing is saved, on this device or anywhere else.</p>
+    <label for="name">Your name</label>
+    <input id="name" name="kf-name" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" required>
+    <label for="secret">Master secret</label>
+    <input id="secret" name="kf-secret" type="password" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" required>
+    <p class="hint">There's no Show button on purpose: phone keyboards can learn what you type in visible fields. The key drawn after unlocking tells you if you mistyped.</p>
+    <button type="submit" id="unlock-btn" class="primary">Unlock</button>
+    <p id="unlock-msg" class="msg" role="status" aria-live="polite"></p>
+  </form>
+
+  <section id="vault" class="panel" hidden>
+    <figure class="identity" aria-labelledby="fp-words">
+      <svg id="fp-key" viewBox="0 0 220 80" role="img" aria-label="Key drawn from your name and secret"></svg>
+      <figcaption>
+        <span id="fp-words" class="fp-words"></span>
+        <span class="fp-note">If this key and these words aren't the ones you always see, lock and retype your secret.</span>
+      </figcaption>
+    </figure>
+
+    <label for="site">Site</label>
+    <input id="site" type="text" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="github.com">
+    <p id="site-norm" class="hint"></p>
+
+    <label for="login">Username on that site <span class="opt">optional</span></label>
+    <input id="login" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false">
+
+    <label for="counter">Version</label>
+    <div class="stepper">
+      <button type="button" class="quiet" id="counter-dec" aria-label="Previous version">−</button>
+      <input id="counter" type="number" inputmode="numeric" min="1" max="4294967295" value="1">
+      <button type="button" class="quiet" id="counter-inc" aria-label="Next version">+</button>
+    </div>
+
+    <fieldset id="lengths" class="seg">
+      <legend>Length</legend>
+      <div class="seg-row"></div>
+    </fieldset>
+    <div id="other-length" hidden>
+      <label for="length">Other length: <output id="length-out" for="length"></output></label>
+      <input id="length" type="range" min="4" max="64" value="20">
+    </div>
+
+    <fieldset id="charsets">
+      <legend>Characters</legend>
+      <div class="checks">
+        <label><input type="checkbox" value="lower" checked> a–z</label>
+        <label><input type="checkbox" value="upper" checked> A–Z</label>
+        <label><input type="checkbox" value="digits" checked> 0–9</label>
+        <label><input type="checkbox" value="symbols" checked> !#$%&amp;*+-=?@^_</label>
+      </div>
+    </fieldset>
+    <p id="tpl-note" class="hint"></p>
+
+    <div class="result">
+      <output id="password" class="password" aria-live="polite">—</output>
+      <div class="result-actions">
+        <button type="button" class="quiet" id="reveal" aria-pressed="false">Show</button>
+        <button type="button" class="primary" id="copy" disabled>Copy</button>
+      </div>
+    </div>
+    <p id="vault-msg" class="msg" role="status" aria-live="polite"></p>
+    <p class="hint">Changing any field gives a completely different password. Bump the version when a site makes you change it.</p>
+  </section>
+</main>
+</body>
+</html>

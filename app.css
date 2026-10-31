@@ -1,0 +1,136 @@
+:root {
+  --paper: #EDF0F3;
+  --surface: #F8F9FB;
+  --ink: #1C2530;
+  --muted: #5B6673;
+  --line: #C9D0D8;
+  --brass: #A87A22;
+  --brass-deep: #7E5A14;
+  --focus: #2F6FB3;
+  --error: #B3261E;
+  --ui: "Avenir Next", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #151A21;
+    --surface: #1D242D;
+    --ink: #E4E9EE;
+    --muted: #97A2AE;
+    --line: #333D49;
+    --brass: #D2A64A;
+    --brass-deep: #E6C276;
+    --focus: #79AEEA;
+    --error: #F2817A;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.5 var(--ui);
+  min-height: 100dvh;
+}
+main {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: max(16px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+}
+[hidden] { display: none !important; }
+
+.top { display: flex; align-items: baseline; justify-content: space-between; margin: 8px 0 20px; }
+h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin: 0; }
+
+.panel { display: flex; flex-direction: column; }
+.lede { margin: 0 0 20px; color: var(--muted); }
+
+label { font-weight: 600; font-size: 0.9375rem; margin: 14px 0 6px; display: block; }
+label .opt { font-weight: 400; color: var(--muted); }
+input[type="text"], input[type="password"], input[type="number"], select {
+  font: inherit;
+  color: inherit;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+input::placeholder { color: var(--muted); opacity: 0.7; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+button {
+  font: inherit;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+button.primary { background: var(--ink); color: var(--paper); }
+button.primary:disabled { opacity: 0.4; cursor: default; }
+button.quiet { background: transparent; color: var(--ink); border-color: var(--line); }
+#unlock-btn { margin-top: 20px; }
+
+.with-action { display: flex; gap: 8px; }
+.with-action input { flex: 1; }
+
+.msg { min-height: 1.5em; margin: 10px 0 0; color: var(--muted); }
+.msg.error { color: var(--error); }
+.hint { margin: 6px 0 0; color: var(--muted); font-size: 0.875rem; }
+.hint code { font-family: var(--mono); color: var(--ink); }
+
+/* The key: the one memorable element. Its cuts are your fingerprint. */
+.identity { margin: 0 0 8px; padding: 0 0 16px; border-bottom: 1px solid var(--line); }
+#fp-key { display: block; width: 100%; max-width: 280px; height: auto; }
+#fp-key .key { fill: var(--brass); }
+#fp-key .hole { fill: var(--paper); }
+#fp-key .groove { stroke: var(--brass-deep); stroke-width: 2; stroke-linecap: round; }
+.identity figcaption { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
+.fp-words { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.01em; }
+.fp-note { color: var(--muted); font-size: 0.875rem; }
+@media (prefers-reduced-motion: no-preference) {
+  #fp-key.cut .key { animation: cut 520ms cubic-bezier(.2,.7,.2,1); }
+  @keyframes cut { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+}
+
+.stepper { display: flex; gap: 4px; }
+.stepper input { width: 4.5rem; text-align: center; -moz-appearance: textfield; }
+.stepper input::-webkit-inner-spin-button, .stepper input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.stepper button { padding: 0; width: 44px; font-size: 1.25rem; }
+
+fieldset { border: 1px solid var(--line); border-radius: 8px; margin: 16px 0 0; padding: 4px 12px 12px; }
+legend { font-weight: 600; padding: 0 4px; }
+.seg { padding: 4px 12px 12px; }
+.seg-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-top: 6px; }
+.seg-row label { margin: 0; position: relative; }
+.seg-row input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.seg-row label {
+  display: flex; align-items: center; justify-content: center; min-height: 44px;
+  border: 1px solid var(--line); border-radius: 8px; font-variant-numeric: tabular-nums; cursor: pointer;
+}
+.seg-row label:has(input:checked) { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.seg-row label:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+#other-length label { margin-top: 12px; }
+input[type="range"] { width: 100%; accent-color: var(--brass); }
+.checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+.checks label { font-weight: 400; display: flex; gap: 8px; align-items: center; margin: 8px 0 0; min-height: 32px; }
+.checks input { accent-color: var(--brass); width: 18px; height: 18px; }
+
+.result { margin-top: 24px; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.password {
+  display: block;
+  font-family: var(--mono);
+  font-size: 1.25rem;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  word-break: break-all;
+  min-height: 1.4em;
+}
+.password.masked { letter-spacing: 0.2em; color: var(--muted); }
+.result-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 12px; }

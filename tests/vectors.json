@@ -1,0 +1,596 @@
+[
+ {
+  "name": "Aayush",
+  "secret": "correct horse battery staple",
+  "masterKeyHex": "7bb6affedfc2797bba4187d94212d94f606ff55c553394a5cfe5b55eabb4e7df",
+  "fingerprint": [
+   "violin",
+   "delta",
+   "piano"
+  ],
+  "cases": [
+   {
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "github.com",
+    "password": "I_fiR2lN6_Srp3=%#5lP"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "https://www.GitHub.com/login?x=1",
+    "password": "I_fiR2lN6_Srp3=%#5lP"
+   },
+   {
+    "login": "",
+    "counter": 2,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "github.com",
+    "password": "0&On4I+*0hEi*ZBN$gth"
+   },
+   {
+    "login": "Aayush@Example.com",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "github.com",
+    "password": "r!Dv&4$UL?G65_@n=QZy"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 6,
+    "classes": [
+     "digits"
+    ],
+    "site": "bank.example",
+    "password": "757368"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 16,
+    "classes": [
+     "lower",
+     "upper",
+     "digits"
+    ],
+    "site": "old-site.in",
+    "password": "kjvmiXy4FMf48Ow2"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 4,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "x.y",
+    "password": "?Ob3"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 64,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "long.example",
+    "password": "j0cLqt30_-gXHeJpwzp#PKRPmuZ8=FjkQ@5fx3y&R2@Ar+v^_1#KbQR3Z-p9BSV8"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 8,
+    "classes": [
+     "symbols"
+    ],
+    "site": "sym.example",
+    "password": "=+-_!$*-"
+   },
+   {
+    "login": "",
+    "counter": 4294967295,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "max.example",
+    "password": "t?fIL0fQ9F*ER%83%3cA"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 8,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "short.example",
+    "password": "%E@q02gP"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 12,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "mid.example",
+    "password": "!D&l7Gq3B3f_"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 15,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "mid.example",
+    "password": "nPx8bNN=9wVDwEs"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 24,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "mid.example",
+    "password": "Q!fRnSh-A8E1s7AlG?3zl4Il"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 12,
+    "classes": [
+     "lower",
+     "digits"
+    ],
+    "site": "mid.example",
+    "password": "h4zse2wvd8v8"
+   }
+  ]
+ },
+ {
+  "name": "Zoë Ñúñez",
+  "secret": "pässwörd 🔑",
+  "masterKeyHex": "44785494fbf61ed7d96a4a08ab1abb8097fb2df50a0a5a1200a93adb5d3e670d",
+  "fingerprint": [
+   "poppy",
+   "apron",
+   "daisy"
+  ],
+  "cases": [
+   {
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "github.com",
+    "password": "N*PexI!a#t6iaeSDj^?Q"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "https://www.GitHub.com/login?x=1",
+    "password": "N*PexI!a#t6iaeSDj^?Q"
+   },
+   {
+    "login": "",
+    "counter": 2,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "github.com",
+    "password": "b0RT95!4P9zxu&2U630W"
+   },
+   {
+    "login": "Aayush@Example.com",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "github.com",
+    "password": "lLJUZ815@5DKO_soo?Y!"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 6,
+    "classes": [
+     "digits"
+    ],
+    "site": "bank.example",
+    "password": "939495"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 16,
+    "classes": [
+     "lower",
+     "upper",
+     "digits"
+    ],
+    "site": "old-site.in",
+    "password": "1jRtRUSU9lUrPkvb"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 4,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "x.y",
+    "password": "0!xA"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 64,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "long.example",
+    "password": "j=X32il1iGBh6Cm@#Q5T@q=GEF#h#@m0++$17m#qB4HQvX=xtF@s7F_?&GUNeXXi"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 8,
+    "classes": [
+     "symbols"
+    ],
+    "site": "sym.example",
+    "password": "?*$_+-!="
+   },
+   {
+    "login": "",
+    "counter": 4294967295,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "max.example",
+    "password": "Q8Z?#7$QTaVu_0**h-vf"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 8,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "short.example",
+    "password": "AK#zsl3R"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 12,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "mid.example",
+    "password": "yVG-G88pUN*S"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 15,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "mid.example",
+    "password": "L^B7aVR*dk7MDC^"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 24,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "mid.example",
+    "password": "&ygGtfw9esyWupbFB2aP?-J?"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 12,
+    "classes": [
+     "lower",
+     "digits"
+    ],
+    "site": "mid.example",
+    "password": "oe6gr311wz0c"
+   }
+  ]
+ },
+ {
+  "name": "a",
+  "secret": "x",
+  "masterKeyHex": "29660b79f7e6491bccced86fcb004113edf217b050c3fdeb5b70398b21d74cba",
+  "fingerprint": [
+   "cherry",
+   "bison",
+   "marble"
+  ],
+  "cases": [
+   {
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "github.com",
+    "password": "qnEq5=Tt$Yd36D^8t*m1"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "https://www.GitHub.com/login?x=1",
+    "password": "qnEq5=Tt$Yd36D^8t*m1"
+   },
+   {
+    "login": "",
+    "counter": 2,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "github.com",
+    "password": "QqZFFywXtdY75am_4RxH"
+   },
+   {
+    "login": "Aayush@Example.com",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "github.com",
+    "password": "!Joci+cis4bwko?jhw_M"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 6,
+    "classes": [
+     "digits"
+    ],
+    "site": "bank.example",
+    "password": "897210"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 16,
+    "classes": [
+     "lower",
+     "upper",
+     "digits"
+    ],
+    "site": "old-site.in",
+    "password": "i9kQANHjXyjlOxBF"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 4,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "x.y",
+    "password": "7*Jm"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 64,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "long.example",
+    "password": "JZssRLX!dykpR0CJ%jQUtdG9nkV!p0vUvsGaljYud-sxrfTl?FU#gv&XGqs2oN61"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 8,
+    "classes": [
+     "symbols"
+    ],
+    "site": "sym.example",
+    "password": "%+#&!-_@"
+   },
+   {
+    "login": "",
+    "counter": 4294967295,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "max.example",
+    "password": "#o6!S0_Dkw8?v0#w@=yX"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 8,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "short.example",
+    "password": "W^7fAU?v"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 12,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "mid.example",
+    "password": "spMMT!U8$TCz"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 15,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "mid.example",
+    "password": "F_m-iP^^IVH9BTV"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 24,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "site": "mid.example",
+    "password": "^bB6MiZuz_TRP8pR4pwLi2rO"
+   },
+   {
+    "login": "",
+    "counter": 1,
+    "length": 12,
+    "classes": [
+     "lower",
+     "digits"
+    ],
+    "site": "mid.example",
+    "password": "cb0074rdl78p"
+   }
+  ]
+ }
+]
