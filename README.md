@@ -27,7 +27,7 @@ A PWA has to be served over HTTPS once before it can be installed. After that it
 
 **It must be the only thing on its web address (origin).** Every GitHub Pages project of one account shares `https://<username>.github.io`. Any page on that origin can open Keyforge's window and read what you type, and SECURITY.md shows one of them rewriting its offline copy. So don't put it next to your other projects.
 
-**Recommended: Cloudflare Pages.** It gives the app its own `https://<project>.pages.dev` and applies the security headers in [`_headers`](_headers) (`frame-ancestors 'none'`, `nosniff`, `Permissions-Policy`), which GitHub Pages ignores.
+**Recommended: Cloudflare.** It gives the app its own `https://<project>.<subdomain>.workers.dev` (or `.pages.dev`) and applies the security headers in [`_headers`](_headers) (`frame-ancestors 'none'`, `nosniff`, `Permissions-Policy`), which GitHub Pages ignores.
 
 1. Cloudflare dashboard, **Workers & Pages → Create application → Import a repository**, and pick this repository.
 2. Set **Build command** to `sh tools/build_site.sh` and leave **Deploy command** as `npx wrangler deploy`. [`wrangler.jsonc`](wrangler.jsonc) tells it to serve only the `_site/` folder that the script builds, which includes `_headers`.
