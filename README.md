@@ -15,7 +15,7 @@ An offline password generator for your laptop and phone. You type your name and 
 | `SECURITY.md` | What was attacked, what held, what was fixed, what's left |
 | `tools/reference.py` | A second, independent implementation in Python (`pip install argon2-cffi`) |
 | `tests/` | Unit tests, cross-implementation vectors, browser test |
-| `.github/workflows/` | CI (`ci.yml`) and GitHub Pages deploy (`pages.yml`) |
+| `.github/workflows/` | CI (`ci.yml`) |
 | `_headers` | Security headers, applied by Cloudflare and Netlify |
 | `wrangler.jsonc`, `tools/build_site.sh` | Cloudflare deploy: serves only the app files |
 
@@ -37,7 +37,7 @@ A PWA has to be served over HTTPS once before it can be installed. After that it
 
 Other safe options: a separate GitHub account or organisation used only for this, with a repository named `<that-name>.github.io`.
 
-**GitHub Pages for this repository** is set up by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) and deploys on every push to `main` at `https://someone-anon-coder.github.io/Keyforge/`. It shares an origin with the account's other Pages sites and ignores `_headers`, so treat it as a demo and don't use it for real passwords. The Content Security Policy and referrer policy are also set in `index.html`, so they still apply there.
+GitHub Pages is not used for this repository: it shares an origin with the account's other Pages sites and ignores `_headers`.
 
 ## CI
 
