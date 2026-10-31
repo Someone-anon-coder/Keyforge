@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: npm test
+      - name: sw.js hashes are up to date
+        run: |
+          python3 tools/stamp.py
+          git diff --exit-code sw.js
+      - name: Browser test
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+          npm run e2e
