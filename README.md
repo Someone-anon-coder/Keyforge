@@ -90,4 +90,6 @@ python3 tools/make_vectors.py  # regenerate vectors from the Python implementati
 
 ## License
 
-MIT, as declared in [package.json](package.json). Argon2 comes from hash-wasm, also MIT ([licence](vendor/hash-wasm.LICENSE)).
+Keyforge is free software under the [GNU General Public License v3.0](LICENSE) or, at your option, any later version. You can use, study, change and share it, but anyone who distributes a modified version, including by serving it as a web app, must do so under the same licence and make the source available.
+
+It includes Argon2 from hash-wasm, which is MIT-licensed and compatible ([licence](vendor/hash-wasm.LICENSE)).
