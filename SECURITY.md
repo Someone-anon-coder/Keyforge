@@ -27,6 +27,33 @@ All of this was tested, not just reasoned about. The scripts live outside the re
 | 6 | A revealed password stayed visible in the phone's recent-apps screenshot. | It's hidden again as soon as the app goes to the background. |
 | 7 | Could be framed by another page. | Refuses to run in a frame. On Cloudflare, `_headers` adds `frame-ancestors 'none'`. |
 
+## Phishing and lookalike sites (added with algorithm v2)
+
+A password manager that fills in by site name has a quiet advantage over a person: a fake `paypa1-secure-login.com` gets nothing, because there is nothing saved for that name. Keyforge has the same property only if the **site really comes from the page's address**, not from what you remember or what an email said.
+
+| Case | Result |
+|---|---|
+| `paypal.com` against `paypa1-secure-login.com`, `paypal.co`, `раураl.com` (Cyrillic letters), `xn--80ak6aa92e.com` | Different passwords, no resemblance beyond chance. Tested. |
+| Address tricks: `paypal.com.evil.com`, `paypal.com@evil.com`, `evil.com/paypal.com`, `evil.com\@paypal.com`, `paypal.evil.github.io` | The site is read as a browser would read it: `evil.com`, `evil.com`, `evil.com`, `evil.com`, `evil.github.io`. Never `paypal.com`. Tested. |
+| Same site by any normal route (`www.`, port, path, query, `xn--`, full-width letters) | One password. |
+| A typo or lookalike *you type yourself* | Still a different password. You are protected only because the fake is a different name. Typing `paypal.com` by hand while on a fake page gives you the real password to type into the fake page. **Use Share or Paste link so the address comes from the browser.** |
+
+What Keyforge does about it:
+
+- **Web Share Target (Android).** Share a page to Keyforge and the site field is filled from its real address. Only the host is kept (never the path or query).
+- **Paste link.** Reads the clipboard only when you press it, and only accepts something that looks like a link or address. A copied password is never put into the visible site field.
+- **The site is shown prominently** under the field, in the form that was used. If it has characters outside a–z, it also shows the Unicode and `xn--` forms and says so; if one name mixes alphabets (Latin with Cyrillic, say) it says that too.
+- **A warning, not a block,** when the site is within two edits of a short built-in list of well-known domains, contains one of their names, or the address contains a known domain that it doesn't belong to. This list is advisory only; it can be wrong either way and it never changes a password.
+
+What it can't do:
+
+- **It can't tell you the page is real.** If you type `paypal.com` yourself on a fake page, you get PayPal's password. The protection comes from the address, so get it from the browser.
+- **Tenant domains that the Public Suffix List doesn't know** (`atlassian.net`, `slack.com`, `zendesk.com`, `my.salesforce.com` at the bundled snapshot) are treated as one site in v2. Anyone can create a tenant there, so an attacker's `evil.slack.com` login page would get the password for `slack.com`. For these, turn on **Use the full hostname** and remember that you did.
+- **Same account, different domains** (`login.live.com`, `microsoft.com`; `google.com`, `youtube.com`) have different passwords. Pick one name and type it. A table that merged such domains would be a list somebody else wrote deciding which sites share your password; Bitwarden's, for example, merges `amazon.in` with `amazon.com`, which are separate accounts.
+- **Lookalike letters in the browser itself.** The `xn--` form shown is the way to see them.
+- **The list is frozen on purpose.** New public suffixes registered after 2026-10-31 aren't known, so a brand-new shared domain behaves like any ordinary domain until a future algorithm version includes it. The alternative, fetching the list, would silently change passwords when it changed.
+- **An address passed to Keyforge by another app is only as honest as that app.** Share from the browser.
+
 ## What can't be fixed in code
 
 **1. A weak master secret is the whole game.** Demonstrated with `sunshine@2024`: one leaked site password, or just a *glimpse of the three fingerprint words*, plus a 720-guess list of "word + symbol + year" patterns found it in 4 seconds on 2 CPU cores. From there, every password for every site follows. Rough cost for an attacker with 100 high-end GPUs (about 200,000 guesses/s, a bandwidth-based estimate):

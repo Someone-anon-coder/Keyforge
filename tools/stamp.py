@@ -7,7 +7,7 @@ import hashlib, json, os, re
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 FILES = [
-    "index.html", "app.css", "app.js", "core.js", "worker.js",
+    "index.html", "app.css", "app.js", "core.js", "v2.js", "psl.js", "link.js", "worker.js",
     "vendor/argon2.umd.min.js", "manifest.webmanifest",
     "icons/icon.svg", "icons/icon-180.png", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-512.png",
 ]

@@ -5,6 +5,7 @@
 // terminates this worker, which unmaps its WASM memory and heap.
 import "./vendor/argon2.umd.min.js"; // sets globalThis.hashwasm
 import { deriveMasterKey, fingerprint, generate, importHmacKey } from "./core.js";
+import { generateV2 } from "./v2.js";
 
 let masterKey = null; // non-extractable CryptoKey
 
@@ -25,7 +26,8 @@ self.onmessage = async ({ data }) => {
       result = await fingerprint(masterKey);
     } else if (cmd === "generate") {
       if (!masterKey) throw new Error("locked");
-      result = await generate(masterKey, data.opts);
+      // opts.algo 2 gets the raw site text (the v2 rule needs the whole host); v1 is unchanged.
+      result = data.opts.algo === 2 ? await generateV2(masterKey, data.opts) : await generate(masterKey, data.opts);
     } else {
       throw new Error(`unknown command ${cmd}`);
     }

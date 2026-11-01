@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Someone-anon-coder
-"""Independent Python implementation of Keyforge algorithm v1 (see ALGORITHM.md).
+"""Independent Python implementation of Keyforge algorithms v1 and v2 (see ALGORITHM.md).
 
 It shares no code with the web app, so it serves two purposes:
   * the test suite checks both implementations agree;
@@ -11,6 +11,7 @@ It shares no code with the web app, so it serves two purposes:
 Usage:
   python3 reference.py --name NAME --site github.com [--login USER] [--counter 1]
                        [--length 20] [--classes lower,upper,digits,symbols]
+                       [--algo 1|2] [--full-host]          (--full-host only applies to v2)
 The master secret is read from a hidden prompt (or KEYFORGE_SECRET for tests).
 """
 import argparse, getpass, hashlib, hmac, os, re, struct, sys, unicodedata
@@ -131,10 +132,12 @@ class Stream:
                 return b % n
 
 
-def password(mk, site, login="", counter=1, length=20, classes=ORDER):
+def password(mk, site, login="", counter=1, length=20, classes=ORDER, _v2=None):
+    """_v2=None is algorithm v1; _v2=False/True is algorithm v2 without/with the full-host switch."""
     classes = [c for c in ORDER if c in classes]
     code = f"L{length}:" + "".join(CODE[c] for c in classes)
-    msg = (lps(DOMAIN + ".site") + lps("password") + lps(norm_site(site))
+    domain, site_str = (DOMAIN, norm_site(site)) if _v2 is None else (DOMAIN2, norm_site_v2(site, _v2))
+    msg = (lps(domain + ".site") + lps("password") + lps(site_str)
            + lps(norm_login(login)) + struct.pack(">I", counter) + lps(code))
     st = Stream(H(mk, msg))
     chars = [CLASSES[c][st.below(len(CLASSES[c]))] for c in classes]
@@ -145,6 +148,55 @@ def password(mk, site, login="", counter=1, length=20, classes=ORDER):
         j = st.below(i + 1)
         chars[i], chars[j] = chars[j], chars[i]
     return "".join(chars)
+
+
+# ---- Algorithm v2 ----------------------------------------------------------------------
+# Same master key and byte stream as v1. Only the site string and the site-key domain differ.
+DOMAIN2 = "keyforge.v2"
+PSL_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "psl.js")
+
+
+def load_psl(path=PSL_FILE):
+    """The frozen snapshot is the rules text inside psl.js (the same file the web app imports)."""
+    src = open(path, encoding="utf-8").read()
+    rules = src.split("export const PSL_RULES = `\n", 1)[1].split("\n`;", 1)[0].split("\n")
+    assert hashlib.sha256("\n".join(rules).encode("utf-8")).hexdigest() == re.search(r'PSL_SHA256 = "(\w+)"', src)[1]
+    return (frozenset(r[1:] for r in rules if r.startswith("!")),
+            frozenset(r[2:] for r in rules if r.startswith("*.")),
+            frozenset(r for r in rules if r and r[0] != "!" and not r.startswith("*.")))
+
+
+EXCEPTIONS, WILDCARDS, PLAIN = load_psl()
+
+
+def suffix_length(labels):
+    n = len(labels)
+    for i in range(n):
+        if ".".join(labels[i:]) in EXCEPTIONS:
+            return n - i - 1
+    for i in range(n):
+        if ".".join(labels[i:]) in PLAIN or (i + 1 < n and ".".join(labels[i + 1:]) in WILDCARDS):
+            return n - i
+    return 1
+
+
+def registrable(host):
+    if re.search(r"[:\[\]]", host):
+        return host
+    labels = host.split(".")
+    if "" in labels or re.fullmatch(r"[0-9]+", labels[-1]):
+        return host
+    n, k = len(labels), suffix_length(labels)
+    return ".".join(labels[n - k - 1:]) if n > k else host
+
+
+def norm_site_v2(s, full_host=False):
+    h = norm_site(s)
+    return h if full_host else registrable(h)
+
+
+def password_v2(mk, site, login="", counter=1, length=20, classes=ORDER, full_host=False):
+    return password(mk, site, login, counter, length, classes, _v2=full_host)
 
 
 WORDS_FILE = os.path.join(os.path.dirname(__file__), "..", "core.js")
@@ -165,8 +217,11 @@ if __name__ == "__main__":
     ap.add_argument("--counter", type=int, default=1)
     ap.add_argument("--length", type=int, default=20)
     ap.add_argument("--classes", default="lower,upper,digits,symbols")
+    ap.add_argument("--algo", type=int, choices=(1, 2), default=2)
+    ap.add_argument("--full-host", action="store_true", help="v2: keep the whole host instead of the registrable domain")
     a = ap.parse_args()
     secret = os.environ.get("KEYFORGE_SECRET") or getpass.getpass("Master secret: ")
     mk = master_key(a.name, secret)
     print("fingerprint:", " ".join(fingerprint(mk)), file=sys.stderr)
-    print(password(mk, a.site, a.login, a.counter, a.length, a.classes.split(",")))
+    v2 = None if a.algo == 1 else a.full_host
+    print(password(mk, a.site, a.login, a.counter, a.length, a.classes.split(","), _v2=v2))
