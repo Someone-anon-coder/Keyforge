@@ -1,0 +1,1534 @@
+[
+ {
+  "name": "Aayush",
+  "secret": "correct horse battery staple",
+  "cases": [
+   {
+    "site": "accounts.google.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "TMi?%h$Idk&A@9_G?I7b"
+   },
+   {
+    "site": "https://mail.google.com/mail/u/0/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "TMi?%h$Idk&A@9_G?I7b"
+   },
+   {
+    "site": "https://myaccount.google.com/security?hl=en",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "TMi?%h$Idk&A@9_G?I7b"
+   },
+   {
+    "site": "google.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "TMi?%h$Idk&A@9_G?I7b"
+   },
+   {
+    "site": "https://www.amazon.com/ap/signin",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "5Q*Moc^BX?p3ExbV_Izg"
+   },
+   {
+    "site": "sellercentral.amazon.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "5Q*Moc^BX?p3ExbV_Izg"
+   },
+   {
+    "site": "https://github.com/login",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "1VqOg&sYvoq6167&g$0O"
+   },
+   {
+    "site": "gist.github.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "1VqOg&sYvoq6167&g$0O"
+   },
+   {
+    "site": "docs.github.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "1VqOg&sYvoq6167&g$0O"
+   },
+   {
+    "site": "login.live.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "$3PdO3J=A?iShim01xZ*"
+   },
+   {
+    "site": "https://login.microsoftonline.com/common/oauth2",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "w^Wv2cWteRw8zoi$Okd="
+   },
+   {
+    "site": "account.microsoft.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "yIvbTi+%_k0*NTd1DkIl"
+   },
+   {
+    "site": "accounts.youtube.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "26-Vo2udWUzAY9sjS*5m"
+   },
+   {
+    "site": "https://accounts.google.co.in/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "HW#pqQGJfv4hip9%KjaY"
+   },
+   {
+    "site": "google.co.in",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "HW#pqQGJfv4hip9%KjaY"
+   },
+   {
+    "site": "https://www.amazon.in/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "bkUbm1c4vZco5L?IKF6v"
+   },
+   {
+    "site": "amazon.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "5Q*Moc^BX?p3ExbV_Izg"
+   },
+   {
+    "site": "www.amazon.co.uk",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "cHcQBXyzIFmHSD2n6$EN"
+   },
+   {
+    "site": "amazon.com.au",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "@@#U91AKV_sNJMmx?3FK"
+   },
+   {
+    "site": "accounts.zoho.in",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "EAIG_c$gG*Fb9HXPJtkg"
+   },
+   {
+    "site": "https://accounts.zoho.com/signin",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "imC*mo&kE10LKV$4H6B8"
+   },
+   {
+    "site": "accounts.zoho.eu",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "Yb?8A4_s+pYMD*g70Vcu"
+   },
+   {
+    "site": "acme.myshopify.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "AYBqo&fWI7?U1sCHsHta"
+   },
+   {
+    "site": "https://admin.acme.myshopify.com/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "AYBqo&fWI7?U1sCHsHta"
+   },
+   {
+    "site": "evil.myshopify.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "0YcZRjb3E3*6SfV$O_v1"
+   },
+   {
+    "site": "someone.github.io",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "y8F_*kZGSL3^57p5F$4M"
+   },
+   {
+    "site": "https://someone.github.io/project/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "y8F_*kZGSL3^57p5F$4M"
+   },
+   {
+    "site": "github.io",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "#F5k2M=x^-GQ_zr3rr=@"
+   },
+   {
+    "site": "myblog.blogspot.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "30RZEr6#?=aNcE$zKo7e"
+   },
+   {
+    "site": "blogspot.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "okRZx@F$O1H_cMC1juG@"
+   },
+   {
+    "site": "myapp.herokuapp.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "D3#8Co1Vs9E?O8-kc&ZG"
+   },
+   {
+    "site": "d111111abcdef8.cloudfront.net",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "0aBo7x#z$7+go+sQNON4"
+   },
+   {
+    "site": "mybucket.s3.amazonaws.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "h2Sp=ha7Mlb@JGi_A6-P"
+   },
+   {
+    "site": "acme.atlassian.net",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "@&pL_Al3FZriT#a4VQ3e"
+   },
+   {
+    "site": "https://acme.slack.com/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "vjsk+h^81oH6*=--TLSs"
+   },
+   {
+    "site": "acme.zendesk.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "kma8vS-Xo?Q6%yYAa&TX"
+   },
+   {
+    "site": "https://acme.my.salesforce.com/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "A$4H#0ITvb&e9WtkjCqf"
+   },
+   {
+    "site": "www.example.co.in",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "6f?Uip7H&IZr5sMlY7^E"
+   },
+   {
+    "site": "mail.example.co.in",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "6f?Uip7H&IZr5sMlY7^E"
+   },
+   {
+    "site": "https://login.portal.example.gov.in/x",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "$e#F+6R=2u-pN__wG%Ri"
+   },
+   {
+    "site": "lms.college.ac.in",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "7Eg4I7_=KqSqW9lfSHqr"
+   },
+   {
+    "site": "a.b.c.example.co.uk",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "+UUXmCtyyP8Wecj1VLm^"
+   },
+   {
+    "site": "www.bbc.co.uk",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "WajjQGnY1F4FG##zl+%8"
+   },
+   {
+    "site": "co.uk",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "WnN8s!Y*jI7@Y20J6@?K"
+   },
+   {
+    "site": "co.in",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "!=t8jK9^B+jOVr&ZpaLg"
+   },
+   {
+    "site": "shop.example.com.cn",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "NhUGZ^7RKY*#jOf&ohDZ"
+   },
+   {
+    "site": "foo.example.zzz",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "=7dEJ8r^md0mO1@E_Nv9"
+   },
+   {
+    "site": "a.b.ck",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "g&5BS&VbxSdHEIT-pHr&"
+   },
+   {
+    "site": "x.a.b.ck",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "g&5BS&VbxSdHEIT-pHr&"
+   },
+   {
+    "site": "www.ck",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "JQ*9^qlGiCVbWzZEsG1M"
+   },
+   {
+    "site": "mail.www.ck",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "lz4m%7ahKv=FYXnXGRkX"
+   },
+   {
+    "site": "city.kawasaki.jp",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "ew-6DjP2y5k-rfY11Rak"
+   },
+   {
+    "site": "x.city.kawasaki.jp",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "ew-6DjP2y5k-rfY11Rak"
+   },
+   {
+    "site": "x.y.kawasaki.jp",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "I+0Cb3t!Q1OC3ed%whOr"
+   },
+   {
+    "site": "z.x.y.kawasaki.jp",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "I+0Cb3t!Q1OC3ed%whOr"
+   },
+   {
+    "site": "localhost",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "D%HBU7_ao-*PIQdRt@9O"
+   },
+   {
+    "site": "http://localhost:3000/app",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "D%HBU7_ao-*PIQdRt@9O"
+   },
+   {
+    "site": "intranet",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "@^M3$Ap06WE^m%v&ZXCQ"
+   },
+   {
+    "site": "192.168.1.1",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "y0OwUUDlNp=xwQL!$m&&"
+   },
+   {
+    "site": "https://192.168.1.1:8443/admin",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "y0OwUUDlNp=xwQL!$m&&"
+   },
+   {
+    "site": "http://[::1]:8080/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "L^ll$KlNJ%^eki*z0LCA"
+   },
+   {
+    "site": "a..b.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "K!gWksePPr#!n0YwBZJ3"
+   },
+   {
+    "site": "www.github.io",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "#F5k2M=x^-GQ_zr3rr=@"
+   },
+   {
+    "site": "bücher.de",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "cp-OFRVmIdP4DpEy?axb"
+   },
+   {
+    "site": "https://shop.bücher.de/x",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "cp-OFRVmIdP4DpEy?axb"
+   },
+   {
+    "site": "shop.xn--bcher-kva.de",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "cp-OFRVmIdP4DpEy?axb"
+   },
+   {
+    "site": "ｍａｉｌ.ｇｏｏｇｌｅ.ｃｏｍ",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "TMi?%h$Idk&A@9_G?I7b"
+   },
+   {
+    "site": "www.食狮.公司.cn",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "8L_0E8ZV3Ft+Np-3^8l@"
+   },
+   {
+    "site": "xn--80ak6aa92e.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "x%A8w+QaIRn%Nc^N@@xF"
+   },
+   {
+    "site": "https://paypal.com/signin",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "u-E2GnaJ#hXSZh26H69$"
+   },
+   {
+    "site": "https://www.paypal.com/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "u-E2GnaJ#hXSZh26H69$"
+   },
+   {
+    "site": "https://paypa1-secure-login.com/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "2M@CBuml2#_nT2^dw7vP"
+   },
+   {
+    "site": "https://paypal.com.evil.com/login",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "^G5UNvE$wDAZb=x^iruu"
+   },
+   {
+    "site": "https://paypal.com@evil.com/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "^G5UNvE$wDAZb=x^iruu"
+   },
+   {
+    "site": "https://evil.com/paypal.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "^G5UNvE$wDAZb=x^iruu"
+   },
+   {
+    "site": "https://evil.com\\@paypal.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "^G5UNvE$wDAZb=x^iruu"
+   },
+   {
+    "site": "https://paypal.com.evil.co.uk/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "YNZ1bH3-xN9yv#!Gvqng"
+   },
+   {
+    "site": "https://paypal.evil.github.io/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "DTEE0cJhh!!m%=&8Tcrt"
+   },
+   {
+    "site": "https://paypal.com:443@evil.com:8080/",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "^G5UNvE$wDAZb=x^iruu"
+   },
+   {
+    "site": "accounts.google.com",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "FGOO7b1GI9&o^wo@k^mz"
+   },
+   {
+    "site": "https://mail.google.com/mail/u/0/",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "lb#lAz7HQ@nX$McP04$$"
+   },
+   {
+    "site": "https://myaccount.google.com/security?hl=en",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "ZC_!_kfSL6Ue%h!lJHPY"
+   },
+   {
+    "site": "google.com",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "TMi?%h$Idk&A@9_G?I7b"
+   },
+   {
+    "site": "https://www.amazon.com/ap/signin",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "5Q*Moc^BX?p3ExbV_Izg"
+   },
+   {
+    "site": "sellercentral.amazon.com",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "jUR3kTah?0?AdkgG+4+b"
+   },
+   {
+    "site": "https://github.com/login",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "1VqOg&sYvoq6167&g$0O"
+   },
+   {
+    "site": "gist.github.com",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "uuM_azbU-DXgPI8DVIcl"
+   },
+   {
+    "site": "docs.github.com",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "DI67VN7CoZ_Ogb9VmUip"
+   },
+   {
+    "site": "login.live.com",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "Cu9SI*erllb-z0&948BF"
+   },
+   {
+    "site": "https://login.microsoftonline.com/common/oauth2",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "PBhEbk0yUoBBjU!s-#YJ"
+   },
+   {
+    "site": "account.microsoft.com",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "*hmgu!C9%?Qd!TXZvVsT"
+   },
+   {
+    "site": "github.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 2,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "4XDWHu4==nt46kRfxyPc"
+   },
+   {
+    "site": "accounts.google.com",
+    "fullHost": false,
+    "login": "Aayush@Example.com",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "G!$9Ph2t*csYat+@27VU"
+   },
+   {
+    "site": "acme.atlassian.net",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "bb9Be_PuqnK8El!ellKw"
+   },
+   {
+    "site": "bank.example",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 6,
+    "classes": [
+     "digits"
+    ],
+    "password": "292863"
+   },
+   {
+    "site": "old-site.in",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 16,
+    "classes": [
+     "lower",
+     "upper",
+     "digits"
+    ],
+    "password": "X56HbhdZrr4MITDN"
+   },
+   {
+    "site": "max.example",
+    "fullHost": false,
+    "login": "",
+    "counter": 4294967295,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "@?4R9E#Ji3n6*ci89ko!"
+   }
+  ]
+ },
+ {
+  "name": "Zoë Ñúñez",
+  "secret": "pässwörd 🔑",
+  "cases": [
+   {
+    "site": "github.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 2,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "xr5wIoy-S&NIe5$%58RJ"
+   },
+   {
+    "site": "accounts.google.com",
+    "fullHost": false,
+    "login": "Aayush@Example.com",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "jRGdr4sYT=3n2CDFF^Yd"
+   },
+   {
+    "site": "acme.atlassian.net",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "KGaAi4Wi@%@3N8An5TPk"
+   },
+   {
+    "site": "bank.example",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 6,
+    "classes": [
+     "digits"
+    ],
+    "password": "375838"
+   },
+   {
+    "site": "old-site.in",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 16,
+    "classes": [
+     "lower",
+     "upper",
+     "digits"
+    ],
+    "password": "VXGg8aLm9Abciup6"
+   },
+   {
+    "site": "max.example",
+    "fullHost": false,
+    "login": "",
+    "counter": 4294967295,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "ExI11zjGxCZu#@U=aBve"
+   }
+  ]
+ },
+ {
+  "name": "a",
+  "secret": "x",
+  "cases": [
+   {
+    "site": "github.com",
+    "fullHost": false,
+    "login": "",
+    "counter": 2,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "GJQ=v=ryt*jwldrjWPx1"
+   },
+   {
+    "site": "accounts.google.com",
+    "fullHost": false,
+    "login": "Aayush@Example.com",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "ptitQ73CA_t-Zf#5FP^x"
+   },
+   {
+    "site": "acme.atlassian.net",
+    "fullHost": true,
+    "login": "",
+    "counter": 1,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "iOAS6Oh^7dTLG#rYNwI+"
+   },
+   {
+    "site": "bank.example",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 6,
+    "classes": [
+     "digits"
+    ],
+    "password": "250444"
+   },
+   {
+    "site": "old-site.in",
+    "fullHost": false,
+    "login": "",
+    "counter": 1,
+    "length": 16,
+    "classes": [
+     "lower",
+     "upper",
+     "digits"
+    ],
+    "password": "WblTpxnkEW5d26Hk"
+   },
+   {
+    "site": "max.example",
+    "fullHost": false,
+    "login": "",
+    "counter": 4294967295,
+    "length": 20,
+    "classes": [
+     "lower",
+     "upper",
+     "digits",
+     "symbols"
+    ],
+    "password": "m9tKvzP556TjJV&T-M$o"
+   }
+  ]
+ }
+]

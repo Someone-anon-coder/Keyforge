@@ -27,6 +27,7 @@
     <input id="name" name="kf-name" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" required>
     <label for="secret">Master secret</label>
     <input id="secret" name="kf-secret" type="password" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" required>
+    <p id="share-note" class="hint share-note" role="status" hidden></p>
     <p class="hint">There's no Show button on purpose: phone keyboards can learn what you type in visible fields. The key drawn after unlocking tells you if you mistyped.</p>
     <button type="submit" id="unlock-btn" class="primary">Unlock</button>
     <p id="unlock-msg" class="msg" role="status" aria-live="polite"></p>
@@ -42,8 +43,18 @@
     </figure>
 
     <label for="site">Site</label>
-    <input id="site" type="text" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="github.com">
-    <p id="site-norm" class="hint"></p>
+    <div class="with-action">
+      <input id="site" type="text" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="github.com or paste a link">
+      <button type="button" class="quiet" id="paste-link">Paste link</button>
+    </div>
+    <div id="site-used" class="site-used" hidden>
+      <span class="su-label">Password made for</span>
+      <strong id="su-site" class="su-site"></strong>
+      <span id="su-from" class="su-from"></span>
+      <p id="su-idn" class="warn" hidden></p>
+      <p id="su-look" class="warn" hidden></p>
+    </div>
+    <label class="check" id="full-host-row"><input type="checkbox" id="full-host"><span>Use the full hostname<br><span class="opt">for sites where each customer has their own address</span></span></label>
 
     <label for="login">Username on that site <span class="opt">optional</span></label>
     <input id="login" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false">
@@ -54,6 +65,15 @@
       <input id="counter" type="number" inputmode="numeric" min="1" max="4294967295" value="1">
       <button type="button" class="quiet" id="counter-inc" aria-label="Next version">+</button>
     </div>
+
+    <fieldset id="algos" class="seg">
+      <legend>Algorithm</legend>
+      <div class="algo-row">
+        <label><input type="radio" name="kf-algo" value="2" checked> v2 · the site's domain</label>
+        <label><input type="radio" name="kf-algo" value="1"> v1 · host as typed</label>
+      </div>
+    </fieldset>
+    <p id="algo-note" class="hint"></p>
 
     <fieldset id="lengths" class="seg">
       <legend>Length</legend>

@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (C) 2026 Someone-anon-coder
 import { LENGTH_CHOICES, DEFAULT_TEMPLATE, enc, normalizeSite, templateCode } from "./core.js";
+import { siteV2 } from "./v2.js";
+import { sharedUrl, linkOrHost, hostFlags, lookalike } from "./link.js";
 
 // Refuse to run inside another page's frame (a same-origin page could read the fields).
 if (window.top !== window.self) {
@@ -32,9 +34,11 @@ const call = (cmd, payload = {}, transfer = []) =>
 // ---- Elements ------------------------------------------------------------
 const form = $("unlock-form"), vault = $("vault"), lockBtn = $("lock");
 const nameEl = $("name"), secretEl = $("secret"), unlockBtn = $("unlock-btn"), unlockMsg = $("unlock-msg");
-const siteEl = $("site"), siteNorm = $("site-norm"), loginEl = $("login"), counterEl = $("counter");
+const siteEl = $("site"), loginEl = $("login"), counterEl = $("counter");
 const segRow = document.querySelector("#lengths .seg-row"), otherEl = $("other-length");
 const lengthEl = $("length"), lengthOut = $("length-out"), charsetEl = $("charsets"), tplNote = $("tpl-note");
+const pasteBtn = $("paste-link"), fullHostEl = $("full-host"), fullHostRow = $("full-host-row"), algoNote = $("algo-note"), shareNote = $("share-note");
+const suBox = $("site-used"), suSite = $("su-site"), suFrom = $("su-from"), suIdn = $("su-idn"), suLook = $("su-look");
 const pwEl = $("password"), revealBtn = $("reveal"), copyBtn = $("copy"), vaultMsg = $("vault-msg");
 
 for (const v of [...LENGTH_CHOICES, "other"]) {
@@ -82,7 +86,7 @@ function showVault(fp) {
   form.hidden = true;
   vault.hidden = false;
   lockBtn.hidden = false;
-  siteEl.focus();
+  if (!siteEl.value) siteEl.focus();
   bumpLockTimer();
   regenerate();
 }
@@ -99,11 +103,28 @@ function lock(reason = "") {
   if (matchMedia("(display-mode: standalone)").matches) window.close();
   setTimeout(() => location.replace(location.pathname + (reason ? "?locked=idle" : "?locked=1")), 50);
 }
+// The query string carries either ?locked= (after a lock) or a Web Share Target launch
+// (?title=&text=&url=). Read it once, then clear it so nothing lingers in the address or history.
 const lockedParam = new URLSearchParams(location.search).get("locked");
+const shared = sharedUrl(location.search);
+if (location.search) history.replaceState(null, "", location.pathname + location.hash);
 if (lockedParam) {
   setMsg(unlockMsg, (lockedParam === "idle" ? "Locked after 5 minutes without use. " : "Locked. ") +
     "Close Keyforge completely when you're done; that clears your secret from memory.");
-  history.replaceState(null, "", location.pathname);
+}
+// Only the host goes into the field, so query strings and tokens in a shared link aren't kept.
+function setSite(linkText) {
+  const host = normalizeSite(linkText);
+  if (!host) return false;
+  siteEl.value = host;
+  return true;
+}
+if (shared && setSite(shared)) {
+  shareNote.hidden = false;
+  shareNote.textContent = "Link received. Unlock to get the password for ";
+  const b = document.createElement("strong");
+  b.textContent = siteV2(siteEl.value);
+  shareNote.append(b, ".");
 }
 lockBtn.addEventListener("click", () => lock());
 
@@ -134,19 +155,46 @@ function resetTemplate() {
   syncCustom();
 }
 
+const readAlgo = () => Number(document.querySelector('#algos input:checked').value);
+
+/** What the password is made for, shown big, with anything that looks off about the address. */
+function showSiteUsed(site, host, algo) {
+  suIdn.hidden = suLook.hidden = true;
+  suBox.hidden = !site;
+  if (!site) return;
+  suSite.textContent = site;
+  suFrom.textContent = site !== host ? `from ${host}` : "";
+
+  const flags = hostFlags(site);
+  if (flags.nonAscii) {
+    suIdn.hidden = false;
+    suIdn.replaceChildren(flags.mixed ? "This name mixes alphabets, which fake sites often do. " : "This name has letters outside a-z, so it could be a lookalike. ",
+      "Unicode: ", Object.assign(document.createElement("code"), { textContent: site }),
+      " · ASCII: ", Object.assign(document.createElement("code"), { textContent: flags.ascii }));
+  }
+  const look = lookalike(site, host);
+  if (look) {
+    suLook.hidden = false;
+    suLook.textContent = look.why === "contains"
+      ? `This address contains ${look.domain} but it belongs to ${site}. Check you are on the real site.`
+      : `${site} looks like ${look.domain} but is a different site. Check you are on the one you meant.`;
+  }
+}
+
 async function regenerate() {
   const seq = ++genSeq;
-  const site = normalizeSite(siteEl.value);
+  const algo = readAlgo();
+  const fullHost = algo === 2 && fullHostEl.checked;
+  fullHostRow.hidden = algo !== 2;
+  const host = normalizeSite(siteEl.value);           // the whole host (what v1 uses)
+  const site = algo === 1 ? host : siteV2(siteEl.value, fullHost);
   const template = readTemplate();
   const counter = Number(counterEl.value);
 
-  siteNorm.innerHTML = "";
-  if (site && site !== siteEl.value.trim()) {
-    siteNorm.append("Using ");
-    const c = document.createElement("code");
-    c.textContent = site;
-    siteNorm.append(c);
-  }
+  showSiteUsed(site, host, algo);
+  algoNote.textContent = "";
+  if (algo === 1) algoNote.textContent = "Old algorithm: the whole host as typed, so every subdomain is a different password. Remember v1 for this site.";
+  else if (fullHost) algoNote.textContent = "Not the default. Remember \u201cfull hostname\u201d for this site.";
   tplNote.textContent = "";
   if (template.classes.length && templateCode(template) !== templateCode(DEFAULT_TEMPLATE)) {
     const c = document.createElement("code");
@@ -156,7 +204,9 @@ async function regenerate() {
 
   if (!site) { current = ""; showPassword(); setMsg(vaultMsg, ""); return; }
   try {
-    const pw = await call("generate", { opts: { site, login: loginEl.value, counter, template } });
+    const opts = algo === 1 ? { site, login: loginEl.value, counter, template }
+      : { algo: 2, site: siteEl.value, fullHost, login: loginEl.value, counter, template };
+    const pw = await call("generate", { opts });
     if (seq !== genSeq) return;
     current = pw;
     setMsg(vaultMsg, "");
@@ -186,6 +236,22 @@ let debounce = 0;
 const schedule = () => { clearTimeout(debounce); debounce = setTimeout(regenerate, 120); };
 for (const el of [siteEl, loginEl, counterEl]) el.addEventListener("input", schedule);
 segRow.addEventListener("change", () => { syncCustom(); regenerate(); });
+$("algos").addEventListener("change", regenerate);
+fullHostEl.addEventListener("change", regenerate);
+
+pasteBtn.addEventListener("click", async () => {
+  try {
+    if (!navigator.clipboard?.readText) throw new Error("unsupported");
+    const text = linkOrHost(await navigator.clipboard.readText());
+    // Anything that isn't plainly a link or address is refused, so a copied password never lands in the visible site field.
+    if (!text || !setSite(text)) { setMsg(vaultMsg, "The clipboard doesn't hold a link. Copy the page's address first.", true); return; }
+    setMsg(vaultMsg, "");
+    regenerate();
+  } catch {
+    setMsg(vaultMsg, "This browser won't let Keyforge read the clipboard. Paste the address into the Site box yourself.", true);
+    siteEl.focus();
+  }
+});
 lengthEl.addEventListener("input", () => { syncCustom(); schedule(); });
 charsetEl.addEventListener("change", regenerate);
 

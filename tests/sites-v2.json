@@ -1,0 +1,476 @@
+[
+ {
+  "group": "one account, many subdomains",
+  "input": "accounts.google.com",
+  "site": "google.com",
+  "fullHost": "accounts.google.com"
+ },
+ {
+  "group": "one account, many subdomains",
+  "input": "https://mail.google.com/mail/u/0/",
+  "site": "google.com",
+  "fullHost": "mail.google.com"
+ },
+ {
+  "group": "one account, many subdomains",
+  "input": "https://myaccount.google.com/security?hl=en",
+  "site": "google.com",
+  "fullHost": "myaccount.google.com"
+ },
+ {
+  "group": "one account, many subdomains",
+  "input": "google.com",
+  "site": "google.com",
+  "fullHost": "google.com"
+ },
+ {
+  "group": "one account, many subdomains",
+  "input": "https://www.amazon.com/ap/signin",
+  "site": "amazon.com",
+  "fullHost": "amazon.com"
+ },
+ {
+  "group": "one account, many subdomains",
+  "input": "sellercentral.amazon.com",
+  "site": "amazon.com",
+  "fullHost": "sellercentral.amazon.com"
+ },
+ {
+  "group": "one account, many subdomains",
+  "input": "https://github.com/login",
+  "site": "github.com",
+  "fullHost": "github.com"
+ },
+ {
+  "group": "one account, many subdomains",
+  "input": "gist.github.com",
+  "site": "github.com",
+  "fullHost": "gist.github.com"
+ },
+ {
+  "group": "one account, many subdomains",
+  "input": "docs.github.com",
+  "site": "github.com",
+  "fullHost": "docs.github.com"
+ },
+ {
+  "group": "one account, several domains",
+  "input": "login.live.com",
+  "site": "live.com",
+  "fullHost": "login.live.com"
+ },
+ {
+  "group": "one account, several domains",
+  "input": "https://login.microsoftonline.com/common/oauth2",
+  "site": "microsoftonline.com",
+  "fullHost": "login.microsoftonline.com"
+ },
+ {
+  "group": "one account, several domains",
+  "input": "account.microsoft.com",
+  "site": "microsoft.com",
+  "fullHost": "account.microsoft.com"
+ },
+ {
+  "group": "one account, several domains",
+  "input": "accounts.youtube.com",
+  "site": "youtube.com",
+  "fullHost": "accounts.youtube.com"
+ },
+ {
+  "group": "one account, several domains",
+  "input": "https://accounts.google.co.in/",
+  "site": "google.co.in",
+  "fullHost": "accounts.google.co.in"
+ },
+ {
+  "group": "one account, several domains",
+  "input": "google.co.in",
+  "site": "google.co.in",
+  "fullHost": "google.co.in"
+ },
+ {
+  "group": "separate accounts per country",
+  "input": "https://www.amazon.in/",
+  "site": "amazon.in",
+  "fullHost": "amazon.in"
+ },
+ {
+  "group": "separate accounts per country",
+  "input": "amazon.com",
+  "site": "amazon.com",
+  "fullHost": "amazon.com"
+ },
+ {
+  "group": "separate accounts per country",
+  "input": "www.amazon.co.uk",
+  "site": "amazon.co.uk",
+  "fullHost": "amazon.co.uk"
+ },
+ {
+  "group": "separate accounts per country",
+  "input": "amazon.com.au",
+  "site": "amazon.com.au",
+  "fullHost": "amazon.com.au"
+ },
+ {
+  "group": "separate accounts per country",
+  "input": "accounts.zoho.in",
+  "site": "zoho.in",
+  "fullHost": "accounts.zoho.in"
+ },
+ {
+  "group": "separate accounts per country",
+  "input": "https://accounts.zoho.com/signin",
+  "site": "zoho.com",
+  "fullHost": "accounts.zoho.com"
+ },
+ {
+  "group": "separate accounts per country",
+  "input": "accounts.zoho.eu",
+  "site": "zoho.eu",
+  "fullHost": "accounts.zoho.eu"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "acme.myshopify.com",
+  "site": "acme.myshopify.com",
+  "fullHost": "acme.myshopify.com"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "https://admin.acme.myshopify.com/",
+  "site": "acme.myshopify.com",
+  "fullHost": "admin.acme.myshopify.com"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "evil.myshopify.com",
+  "site": "evil.myshopify.com",
+  "fullHost": "evil.myshopify.com"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "someone.github.io",
+  "site": "someone.github.io",
+  "fullHost": "someone.github.io"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "https://someone.github.io/project/",
+  "site": "someone.github.io",
+  "fullHost": "someone.github.io"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "github.io",
+  "site": "github.io",
+  "fullHost": "github.io"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "myblog.blogspot.com",
+  "site": "myblog.blogspot.com",
+  "fullHost": "myblog.blogspot.com"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "blogspot.com",
+  "site": "blogspot.com",
+  "fullHost": "blogspot.com"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "myapp.herokuapp.com",
+  "site": "myapp.herokuapp.com",
+  "fullHost": "myapp.herokuapp.com"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "d111111abcdef8.cloudfront.net",
+  "site": "d111111abcdef8.cloudfront.net",
+  "fullHost": "d111111abcdef8.cloudfront.net"
+ },
+ {
+  "group": "tenants in the PSL",
+  "input": "mybucket.s3.amazonaws.com",
+  "site": "mybucket.s3.amazonaws.com",
+  "fullHost": "mybucket.s3.amazonaws.com"
+ },
+ {
+  "group": "tenants missing from the PSL",
+  "input": "acme.atlassian.net",
+  "site": "atlassian.net",
+  "fullHost": "acme.atlassian.net"
+ },
+ {
+  "group": "tenants missing from the PSL",
+  "input": "https://acme.slack.com/",
+  "site": "slack.com",
+  "fullHost": "acme.slack.com"
+ },
+ {
+  "group": "tenants missing from the PSL",
+  "input": "acme.zendesk.com",
+  "site": "zendesk.com",
+  "fullHost": "acme.zendesk.com"
+ },
+ {
+  "group": "tenants missing from the PSL",
+  "input": "https://acme.my.salesforce.com/",
+  "site": "salesforce.com",
+  "fullHost": "acme.my.salesforce.com"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "www.example.co.in",
+  "site": "example.co.in",
+  "fullHost": "example.co.in"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "mail.example.co.in",
+  "site": "example.co.in",
+  "fullHost": "mail.example.co.in"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "https://login.portal.example.gov.in/x",
+  "site": "example.gov.in",
+  "fullHost": "login.portal.example.gov.in"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "lms.college.ac.in",
+  "site": "college.ac.in",
+  "fullHost": "lms.college.ac.in"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "a.b.c.example.co.uk",
+  "site": "example.co.uk",
+  "fullHost": "a.b.c.example.co.uk"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "www.bbc.co.uk",
+  "site": "bbc.co.uk",
+  "fullHost": "bbc.co.uk"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "co.uk",
+  "site": "co.uk",
+  "fullHost": "co.uk"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "co.in",
+  "site": "co.in",
+  "fullHost": "co.in"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "shop.example.com.cn",
+  "site": "example.com.cn",
+  "fullHost": "shop.example.com.cn"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "foo.example.zzz",
+  "site": "example.zzz",
+  "fullHost": "foo.example.zzz"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "a.b.ck",
+  "site": "a.b.ck",
+  "fullHost": "a.b.ck"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "x.a.b.ck",
+  "site": "a.b.ck",
+  "fullHost": "x.a.b.ck"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "www.ck",
+  "site": "ck",
+  "fullHost": "ck"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "mail.www.ck",
+  "site": "www.ck",
+  "fullHost": "mail.www.ck"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "city.kawasaki.jp",
+  "site": "city.kawasaki.jp",
+  "fullHost": "city.kawasaki.jp"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "x.city.kawasaki.jp",
+  "site": "city.kawasaki.jp",
+  "fullHost": "x.city.kawasaki.jp"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "x.y.kawasaki.jp",
+  "site": "x.y.kawasaki.jp",
+  "fullHost": "x.y.kawasaki.jp"
+ },
+ {
+  "group": "multi-part suffixes",
+  "input": "z.x.y.kawasaki.jp",
+  "site": "x.y.kawasaki.jp",
+  "fullHost": "z.x.y.kawasaki.jp"
+ },
+ {
+  "group": "no registrable domain",
+  "input": "localhost",
+  "site": "localhost",
+  "fullHost": "localhost"
+ },
+ {
+  "group": "no registrable domain",
+  "input": "http://localhost:3000/app",
+  "site": "localhost",
+  "fullHost": "localhost"
+ },
+ {
+  "group": "no registrable domain",
+  "input": "intranet",
+  "site": "intranet",
+  "fullHost": "intranet"
+ },
+ {
+  "group": "no registrable domain",
+  "input": "192.168.1.1",
+  "site": "192.168.1.1",
+  "fullHost": "192.168.1.1"
+ },
+ {
+  "group": "no registrable domain",
+  "input": "https://192.168.1.1:8443/admin",
+  "site": "192.168.1.1",
+  "fullHost": "192.168.1.1"
+ },
+ {
+  "group": "no registrable domain",
+  "input": "http://[::1]:8080/",
+  "site": "[::1]",
+  "fullHost": "[::1]"
+ },
+ {
+  "group": "no registrable domain",
+  "input": "a..b.com",
+  "site": "a..b.com",
+  "fullHost": "a..b.com"
+ },
+ {
+  "group": "no registrable domain",
+  "input": "www.github.io",
+  "site": "github.io",
+  "fullHost": "github.io"
+ },
+ {
+  "group": "international names",
+  "input": "bücher.de",
+  "site": "bücher.de",
+  "fullHost": "bücher.de"
+ },
+ {
+  "group": "international names",
+  "input": "https://shop.bücher.de/x",
+  "site": "bücher.de",
+  "fullHost": "shop.bücher.de"
+ },
+ {
+  "group": "international names",
+  "input": "shop.xn--bcher-kva.de",
+  "site": "bücher.de",
+  "fullHost": "shop.bücher.de"
+ },
+ {
+  "group": "international names",
+  "input": "ｍａｉｌ.ｇｏｏｇｌｅ.ｃｏｍ",
+  "site": "google.com",
+  "fullHost": "mail.google.com"
+ },
+ {
+  "group": "international names",
+  "input": "www.食狮.公司.cn",
+  "site": "食狮.公司.cn",
+  "fullHost": "食狮.公司.cn"
+ },
+ {
+  "group": "international names",
+  "input": "xn--80ak6aa92e.com",
+  "site": "аррӏе.com",
+  "fullHost": "аррӏе.com"
+ },
+ {
+  "group": "phishing",
+  "input": "https://paypal.com/signin",
+  "site": "paypal.com",
+  "fullHost": "paypal.com"
+ },
+ {
+  "group": "phishing",
+  "input": "https://www.paypal.com/",
+  "site": "paypal.com",
+  "fullHost": "paypal.com"
+ },
+ {
+  "group": "phishing",
+  "input": "https://paypa1-secure-login.com/",
+  "site": "paypa1-secure-login.com",
+  "fullHost": "paypa1-secure-login.com"
+ },
+ {
+  "group": "phishing",
+  "input": "https://paypal.com.evil.com/login",
+  "site": "evil.com",
+  "fullHost": "paypal.com.evil.com"
+ },
+ {
+  "group": "phishing",
+  "input": "https://paypal.com@evil.com/",
+  "site": "evil.com",
+  "fullHost": "evil.com"
+ },
+ {
+  "group": "phishing",
+  "input": "https://evil.com/paypal.com",
+  "site": "evil.com",
+  "fullHost": "evil.com"
+ },
+ {
+  "group": "phishing",
+  "input": "https://evil.com\\@paypal.com",
+  "site": "evil.com",
+  "fullHost": "evil.com"
+ },
+ {
+  "group": "phishing",
+  "input": "https://paypal.com.evil.co.uk/",
+  "site": "evil.co.uk",
+  "fullHost": "paypal.com.evil.co.uk"
+ },
+ {
+  "group": "phishing",
+  "input": "https://paypal.evil.github.io/",
+  "site": "evil.github.io",
+  "fullHost": "paypal.evil.github.io"
+ },
+ {
+  "group": "phishing",
+  "input": "https://paypal.com:443@evil.com:8080/",
+  "site": "evil.com",
+  "fullHost": "evil.com"
+ }
+]

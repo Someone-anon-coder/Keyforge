@@ -80,6 +80,23 @@ button.quiet { background: transparent; color: var(--ink); border-color: var(--l
 .with-action { display: flex; gap: 8px; }
 .with-action input { flex: 1; }
 
+.with-action button { white-space: nowrap; }
+label.check { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; margin: 12px 0 0; }
+label.check input { accent-color: var(--brass); width: 18px; height: 18px; margin-top: 3px; flex: none; }
+.site-used { margin-top: 8px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; display: flex; flex-direction: column; gap: 2px; }
+.su-label { color: var(--muted); font-size: 0.8125rem; }
+.su-site { font-family: var(--mono); font-size: 1.125rem; font-weight: 600; overflow-wrap: anywhere; }
+.su-from { color: var(--muted); font-size: 0.875rem; overflow-wrap: anywhere; }
+.warn { margin: 6px 0 0; padding-left: 10px; border-left: 3px solid var(--error); font-size: 0.875rem; overflow-wrap: anywhere; }
+.warn code { font-family: var(--mono); }
+.share-note { color: var(--ink); }
+.algo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
+.algo-row label { margin: 0; position: relative; display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 8px; text-align: center; font-size: 0.875rem;
+  border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
+.algo-row input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.algo-row label:has(input:checked) { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.algo-row label:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+
 .msg { min-height: 1.5em; margin: 10px 0 0; color: var(--muted); }
 .msg.error { color: var(--error); }
 .hint { margin: 6px 0 0; color: var(--muted); font-size: 0.875rem; }

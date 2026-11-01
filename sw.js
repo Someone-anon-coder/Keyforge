@@ -5,15 +5,18 @@
 // tampered cache (e.g. from another page on the same origin) is refused.
 // Don't edit the block below by hand: run `python3 tools/stamp.py` after changing any file.
 // STAMP-BEGIN
-const CACHE = "keyforge-9d05601b4755";
+const CACHE = "keyforge-ff33c02fc189";
 const HASHES = {
-  "index.html": "a021df78bf913c42abd77bb9a89646de8a7e52e20e922806f34e703561cb6c3d",
-  "app.css": "8468394cf817df0ef85946dd7b80caee032bd70611a8d732e5eef541a120fa71",
-  "app.js": "54cd94e3db5ab84dfc94f075880aba7fa838c6e2206c1ada2f9b919d24738dc3",
+  "index.html": "d4aee1b004d7821d021b496ffc277637e457fceb76ada87eb891fca58d656b75",
+  "app.css": "86f513a3931867b9c909e1d20aa409c76da8bed0a442bc910024d3cd2c01ce39",
+  "app.js": "d58cc02bd472749e19cfb32c775e5cd5569a2bfb57cb5fe1682a751ba8d91190",
   "core.js": "118cd421cd93a02cc401cb526b276cbca69cd358a6b1f32ad715e9d7e3916903",
-  "worker.js": "5701dc3eba5e3fb16e8ead3cd52bf96c2cfac55546df9d7d4580a8644e204cbe",
+  "v2.js": "91f23dd20ff85ae8a800be2dda56b0d39971eff5d989858499ed2f06068137fe",
+  "psl.js": "5b0728fe6e107d7db82d9788227fa7c4dc352007875887c1ae7a72cdc671fbee",
+  "link.js": "afeb48b7a6bdf9a7fa2308f169b8ada9b024e0abe281891a767f7675d7e2b2f2",
+  "worker.js": "2d9dc08692dc889e66c24fa4b7c8cc7de6920668ca3005f8dc8567a7dedb86ce",
   "vendor/argon2.umd.min.js": "dcec617a2e1b700fa132d1583a186cb70611113395e869f2dd6cc82b415d3094",
-  "manifest.webmanifest": "51877754793af2ed43f97b052e6d9e1b7b54430c4b07cfcb988c9fb2207cc70c",
+  "manifest.webmanifest": "30967e7e8c10fc30b1ea5d6381a3a39298a81e8eb414244e2fb3dbac22b49461",
   "icons/icon.svg": "4c721b900a426c78d2d80d77f084a4a9f9f0c1af5420d85ac805a504e7ea1435",
   "icons/icon-180.png": "86b14a090cdc6eb3685cebc0fd93a4721a1706eeb487e83349ab64ba68f06c65",
   "icons/icon-192.png": "33b9e5d29db08958008e435e55702cba560ff743aabb6fdc63e11e2c04a78109",

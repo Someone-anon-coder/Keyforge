@@ -6,5 +6,5 @@ set -e
 cd "$(dirname "$0")/.."
 rm -rf _site
 mkdir _site
-cp index.html app.css app.js core.js worker.js sw.js manifest.webmanifest _headers _site/
+cp index.html app.css app.js core.js v2.js psl.js link.js worker.js sw.js manifest.webmanifest _headers _site/
 cp -r icons vendor _site/

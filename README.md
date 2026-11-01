@@ -17,9 +17,12 @@ The full specification is in [ALGORITHM.md](ALGORITHM.md). Because it's written 
 ## Using it
 
 1. Open the app and type your **name** and **master secret**. Three fingerprint words appear; if they differ from last time, you mistyped.
-2. Type the **site** (`github.com`, or paste a full address; they give the same password).
-3. Optionally set a login, length, character types, or the counter.
-4. Copy the password. It is cleared from the clipboard after 30 seconds.
+2. Give it the **site** from the real page address, not from memory: on Android, **Share** the page to Keyforge; on a laptop, copy the address and press **Paste link**. You can also type or paste it (`github.com` and `https://accounts.github.com/login` give the same password). A fake site such as `paypa1-secure-login.com` gets a different, useless password.
+3. Check the site shown under the box: that's what the password is made for. Subdomains share one password (`accounts.google.com` and `google.com` are both `google.com`). Turn on **Use the full hostname** for services where every customer has their own subdomain and their own login (see [ALGORITHM.md](ALGORITHM.md)).
+4. Optionally set a login, length, character types, or the counter.
+5. Copy the password. It is cleared from the clipboard after 30 seconds.
+
+**Algorithm.** New passwords use **v2** (the site's registrable domain, so lookalikes differ). **v1** (the host exactly as typed) is still there for accounts you set up before v2; pick it with the Algorithm switch. Keyforge stores nothing, so remember which one each old site uses.
 
 **Choose a strong master secret.** Everything depends on it. Use six random words (for example, from [diceware](https://theworld.com/~reinhold/diceware.htm)), not something a person would pick. See [SECURITY.md](SECURITY.md) for how fast weak secrets fall.
 
@@ -31,7 +34,7 @@ Open the app once while online, then:
 - **Android (Chrome):** menu, then **Install app** (or **Add to Home screen**).
 - **iPhone (Safari):** Share, then **Add to Home Screen**.
 
-After that it works in airplane mode. Install from a browser profile with no extensions, and choose **Never** if the browser offers to save the master secret.
+After that it works in airplane mode. On Android, the installed app also appears in the browser's **Share** menu. Install from a browser profile with no extensions, and choose **Never** if the browser offers to save the master secret.
 
 ## Privacy and security
 
@@ -70,20 +73,23 @@ Locally: `npm run serve` serves the folder at http://localhost:8080.
 |---|---|
 | `index.html`, `app.css`, `app.js` | The interface |
 | `worker.js` | Holds the master key in a Web Worker; the page never sees it |
-| `core.js` | The algorithm (pure functions, also used by the tests) |
+| `core.js` | Algorithm v1 (pure functions, also used by the tests) |
+| `v2.js`, `psl.js` | Algorithm v2, and its frozen Public Suffix List snapshot (MPL-2.0; never updated, see ALGORITHM.md) |
+| `link.js` | Interface helpers: reading shared links, lookalike warnings. They never affect a password |
 | `vendor/argon2.umd.min.js` | Argon2id from [hash-wasm](https://github.com/Daninet/hash-wasm) 4.12.0, MIT. SHA-256 `dcec617a2e1b700fa132d1583a186cb70611113395e869f2dd6cc82b415d3094` |
 | `sw.js`, `manifest.webmanifest`, `icons/` | Offline support and install |
 | `tools/stamp.py` | Writes every file's SHA-256 into `sw.js` |
-| `tools/reference.py` | Independent Python implementation (`pip install argon2-cffi`) |
+| `tools/reference.py` | Independent Python implementation of v1 and v2 (`pip install argon2-cffi`) |
+| `tools/make_psl.py`, `tools/site_cases.py` | Builds `psl.js` from a downloaded list; the hand-written site cases behind the tests |
 | `tools/build_site.sh`, `wrangler.jsonc` | Builds the folder Cloudflare serves |
 | `tests/` | Unit tests, cross-implementation vectors, browser test |
 
-After changing any served file, run `python3 tools/stamp.py` and commit the result; CI fails if `sw.js` is out of date. **Never change anything in `core.js` that affects output**, because that would change everyone's passwords. Add a v2 alongside it instead, as ALGORITHM.md explains.
+After changing any served file, run `python3 tools/stamp.py` and commit the result; CI fails if `sw.js` is out of date. **Never change anything in `core.js`, `v2.js` or `psl.js` that affects output**, because that would change everyone's passwords. Add a v3 alongside instead, as ALGORITHM.md explains.
 
 ```
 npm test                       # algorithm: vectors from the Python version, normalisation, bias check
-npm run e2e                    # real browser: UI, CSP, copy, lock, offline reload (needs Playwright)
-python3 tools/make_vectors.py  # regenerate vectors from the Python implementation
+npm run e2e                    # real browser: UI, CSP, copy, lock, share target, offline reload (needs Playwright)
+python3 tools/make_vectors.py  # regenerate vectors from the Python implementation (keeps the first 20,000 fuzz rows)
 ```
 
 [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs the unit tests, the `sw.js` check and the browser test on pushes to `main` and on pull requests.
@@ -94,4 +100,4 @@ Copyright (C) 2026 Someone-anon-coder.
 
 Keyforge is free software under the [GNU General Public License v3.0](LICENSE) or, at your option, any later version. You can use, study, change and share it, but anyone who distributes a modified version, including by serving it as a web app, must do so under the same licence and make the source available.
 
-It includes Argon2 from hash-wasm, which is MIT-licensed and compatible ([licence](vendor/hash-wasm.LICENSE)).
+It includes Argon2 from hash-wasm, which is MIT-licensed and compatible ([licence](vendor/hash-wasm.LICENSE)), and a snapshot of the [Public Suffix List](https://publicsuffix.org/list/) in `psl.js`, which is licensed under the Mozilla Public License 2.0 and keeps that licence (MPL 2.0 allows combining with GPL).
