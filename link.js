@@ -155,13 +155,14 @@ export function editDistance(a, b) {
 /**
  * Does this site imitate a well-known one? site: what the password is made for; host: the whole
  * host it came from. Returns { domain, why } for the first match, or null. Exactly a listed
- * domain is never flagged.
+ * domain is never flagged, nor is a subdomain of one (the brand must not be the real end of the address).
  */
 export function lookalike(site, host = site) {
   if (!site || HIGH_VALUE.includes(site)) return null;
   const skel = skeleton(site);
   for (const d of HIGH_VALUE) {
-    if (("." + host + ".").includes("." + d + ".")) return { domain: d, why: "contains" };
+    const h = "." + host;
+    if ((h + ".").includes("." + d + ".") && !h.endsWith("." + d)) return { domain: d, why: "contains" };
   }
   for (const d of HIGH_VALUE) {
     if (d.length >= 8 && Math.min(editDistance(site, d), editDistance(skel, d)) <= 2) return { domain: d, why: "close" };
