@@ -17,7 +17,7 @@ The full specification is in [ALGORITHM.md](ALGORITHM.md). Because it's written 
 ## Using it
 
 1. Open the app and type your **name** and **master secret**. Three fingerprint words appear; if they differ from last time, you mistyped.
-2. Give it the **site** from the real page address, not from memory: on Android, **Share** the page to Keyforge; on a laptop, copy the address and press **Paste link**. You can also type or paste it (`github.com` and `https://accounts.github.com/login` give the same password). A fake site such as `paypa1-secure-login.com` gets a different, useless password.
+2. Give it the **site** from the real page address, not from memory: on Android, **Share** the page to Keyforge (only from the login page itself; a web page can fake a share, see [SECURITY.md](SECURITY.md)); on a laptop, copy the address and press **Paste link**. You can also type or paste it (`github.com` and `https://accounts.github.com/login` give the same password). A fake site such as `paypa1-secure-login.com` gets a different, useless password.
 3. Check the site shown under the box: that's what the password is made for. Subdomains share one password (`accounts.google.com` and `google.com` are both `google.com`). Turn on **Use the full hostname** for services where every customer has their own subdomain and their own login (see [ALGORITHM.md](ALGORITHM.md)).
 4. Optionally set a login, length, character types, or the counter.
 5. Copy the password. It is cleared from the clipboard after 30 seconds.

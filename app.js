@@ -38,7 +38,7 @@ const siteEl = $("site"), loginEl = $("login"), counterEl = $("counter");
 const segRow = document.querySelector("#lengths .seg-row"), otherEl = $("other-length");
 const lengthEl = $("length"), lengthOut = $("length-out"), charsetEl = $("charsets"), tplNote = $("tpl-note");
 const pasteBtn = $("paste-link"), fullHostEl = $("full-host"), fullHostRow = $("full-host-row"), algoNote = $("algo-note"), shareNote = $("share-note");
-const suBox = $("site-used"), suSite = $("su-site"), suFrom = $("su-from"), suIdn = $("su-idn"), suLook = $("su-look");
+const suBox = $("site-used"), suSite = $("su-site"), suFrom = $("su-from"), suIdn = $("su-idn"), suLook = $("su-look"), suLink = $("su-link");
 const pwEl = $("password"), revealBtn = $("reveal"), copyBtn = $("copy"), vaultMsg = $("vault-msg");
 
 for (const v of [...LENGTH_CHOICES, "other"]) {
@@ -100,13 +100,19 @@ function lock(reason = "") {
   worker.terminate();
   current = "";
   document.body.hidden = true;
-  if (matchMedia("(display-mode: standalone)").matches) window.close();
+  if (standalone) window.close();
   setTimeout(() => location.replace(location.pathname + (reason ? "?locked=idle" : "?locked=1")), 50);
 }
 // The query string carries either ?locked= (after a lock) or a Web Share Target launch
 // (?title=&text=&url=). Read it once, then clear it so nothing lingers in the address or history.
 const lockedParam = new URLSearchParams(location.search).get("locked");
-const shared = sharedUrl(location.search);
+// A web page can open Keyforge with ?text=<any address>, which looks exactly like a real Share, and
+// Keyforge can't tell them apart. The share sheet always opens the installed app, while a link on a
+// page usually opens a browser tab, so shared links are only taken in the installed app.
+const standalone = matchMedia("(display-mode: standalone)").matches;
+const shared = standalone ? sharedUrl(location.search) : null;
+// True while the site field holds an address that came from a link or the clipboard rather than from typing.
+let fromLink = false;
 if (location.search) history.replaceState(null, "", location.pathname + location.hash);
 if (lockedParam) {
   setMsg(unlockMsg, (lockedParam === "idle" ? "Locked after 5 minutes without use. " : "Locked. ") +
@@ -117,14 +123,15 @@ function setSite(linkText) {
   const host = normalizeSite(linkText);
   if (!host) return false;
   siteEl.value = host;
+  fromLink = true;
   return true;
 }
 if (shared && setSite(shared)) {
   shareNote.hidden = false;
-  shareNote.textContent = "Link received. Unlock to get the password for ";
+  shareNote.textContent = "Keyforge was opened with a link for ";
   const b = document.createElement("strong");
   b.textContent = siteV2(siteEl.value);
-  shareNote.append(b, ".");
+  shareNote.append(b, ". It can't tell whether that came from your Share button or from a link on a web page. Continue only if you just pressed Share on the login page.");
 }
 lockBtn.addEventListener("click", () => lock());
 
@@ -160,6 +167,7 @@ const readAlgo = () => Number(document.querySelector('#algos input:checked').val
 /** What the password is made for, shown big, with anything that looks off about the address. */
 function showSiteUsed(site, host, algo) {
   suIdn.hidden = suLook.hidden = true;
+  suLink.hidden = !(site && fromLink);
   suBox.hidden = !site;
   if (!site) return;
   suSite.textContent = site;
@@ -234,6 +242,7 @@ function showPassword() {
 
 let debounce = 0;
 const schedule = () => { clearTimeout(debounce); debounce = setTimeout(regenerate, 120); };
+siteEl.addEventListener("input", () => { fromLink = false; });
 for (const el of [siteEl, loginEl, counterEl]) el.addEventListener("input", schedule);
 segRow.addEventListener("change", () => { syncCustom(); regenerate(); });
 $("algos").addEventListener("change", regenerate);

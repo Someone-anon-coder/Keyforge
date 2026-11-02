@@ -40,7 +40,7 @@ A password manager that fills in by site name has a quiet advantage over a perso
 
 What Keyforge does about it:
 
-- **Web Share Target (Android).** Share a page to Keyforge and the site field is filled from its real address. Only the host is kept (never the path or query).
+- **Web Share Target (Android).** Share a page to Keyforge and the site field is filled from the address Android passes it. Only the host is kept (never the path or query). Keyforge cannot prove that address came from your Share button; see point 7 below.
 - **Paste link.** Reads the clipboard only when you press it, and only accepts something that looks like a link or address. A copied password is never put into the visible site field.
 - **The site is shown prominently** under the field, in the form that was used. If it has characters outside a–z, it also shows the Unicode and `xn--` forms and says so; if one name mixes alphabets (Latin with Cyrillic, say) it says that too.
 - **A warning, not a block,** when the site is within two edits of a short built-in list of well-known domains, contains one of their names, or the address contains a known domain that it doesn't belong to. This list is advisory only; it can be wrong either way and it never changes a password.
@@ -52,7 +52,7 @@ What it can't do:
 - **Same account, different domains** (`login.live.com`, `microsoft.com`; `google.com`, `youtube.com`) have different passwords. Pick one name and type it. A table that merged such domains would be a list somebody else wrote deciding which sites share your password; Bitwarden's, for example, merges `amazon.in` with `amazon.com`, which are separate accounts.
 - **Lookalike letters in the browser itself.** The `xn--` form shown is the way to see them.
 - **The list is frozen on purpose.** New public suffixes registered after 2026-10-31 aren't known, so a brand-new shared domain behaves like any ordinary domain until a future algorithm version includes it. The alternative, fetching the list, would silently change passwords when it changed.
-- **An address passed to Keyforge by another app is only as honest as that app.** Share from the browser.
+- **An address passed to Keyforge by another app or web page is only as honest as that source.** Share from the browser, on the login page itself.
 
 ## What can't be fixed in code
 
@@ -77,4 +77,6 @@ Use 6 random diceware words. The name being public makes no difference.
 
 **6. Whoever controls the hosting controls the app.** A malicious update with matching hashes would be trusted. Turn on two-factor authentication for that GitHub or Cloudflare account.
 
-**7. Newer Unicode characters.** NFKC and lowercasing differ for about 90 recently added characters between Unicode 15 and 17. Stick to ordinary characters in names, sites and usernames.
+**7. A web page can fake a Share.** An ordinary link to `…/?text=Sign in https://www.paypal.com/signin` opens Keyforge showing the same screen as a real Share from paypal.com, and the request headers and referrer are identical. The clipboard has the same weakness, because a page can write any address to it when you click. A web app has no trustworthy way to learn the address of the page you are on; only a browser extension can read the real tab. A phishing page that knows you use Keyforge and where it lives could offer a "Get your password" button that lands on the real site's password. What Keyforge does: it only accepts shared links when running as the installed app (the share sheet always opens it that way; a link on a page usually opens a browser tab), says plainly that it can't tell where a link came from, and keeps that note beside the site until you type it yourself. It isn't airtight: on Android, links from other apps such as email can still open the installed app. Share only from the login page you are looking at, and treat the site name shown under the box as the thing to check.
+
+**8. Newer Unicode characters.** NFKC and lowercasing differ for about 90 recently added characters between Unicode 15 and 17. Stick to ordinary characters in names, sites and usernames.

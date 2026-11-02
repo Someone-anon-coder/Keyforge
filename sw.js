@@ -5,11 +5,11 @@
 // tampered cache (e.g. from another page on the same origin) is refused.
 // Don't edit the block below by hand: run `python3 tools/stamp.py` after changing any file.
 // STAMP-BEGIN
-const CACHE = "keyforge-3d0308962000";
+const CACHE = "keyforge-d7aa3b4d07f0";
 const HASHES = {
-  "index.html": "d4aee1b004d7821d021b496ffc277637e457fceb76ada87eb891fca58d656b75",
+  "index.html": "07fbf0fc4992b454345ce7b137f0ef6b7e90d499e51de31d123a001dbe00c139",
   "app.css": "86f513a3931867b9c909e1d20aa409c76da8bed0a442bc910024d3cd2c01ce39",
-  "app.js": "d58cc02bd472749e19cfb32c775e5cd5569a2bfb57cb5fe1682a751ba8d91190",
+  "app.js": "a542c71ee2ed21c3aa636e65e67d11fd39bd99389da001a85440f4a33e93a929",
   "core.js": "118cd421cd93a02cc401cb526b276cbca69cd358a6b1f32ad715e9d7e3916903",
   "v2.js": "91f23dd20ff85ae8a800be2dda56b0d39971eff5d989858499ed2f06068137fe",
   "psl.js": "5b0728fe6e107d7db82d9788227fa7c4dc352007875887c1ae7a72cdc671fbee",

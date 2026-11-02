@@ -171,16 +171,30 @@ const root = path.join(__dirname, "..");
     console.log("offline reload + generate: ok");
 
     // Share Target launches go through the service worker too, query string and all
+    // A link on a web page opens a browser tab, not the installed app: a faked share must be ignored there
+    const fake = await ctx.newPage();
+    await fake.goto("http://127.0.0.1:8765/?text=" + encodeURIComponent("Sign in https://www.paypal.com/signin"));
+    assert.ok(await fake.isHidden("#share-note"), "shared link ignored outside the installed app");
+    assert.equal(await fake.inputValue("#site"), "");
+    await fake.close();
     const share = await ctx.newPage();
     share.on("pageerror", (e) => problems.push(e.message));
+    // the share sheet opens the installed app, which reports display-mode: standalone
+    await share.addInitScript(() => {
+      const mm = window.matchMedia.bind(window);
+      window.matchMedia = (q) => (/display-mode:\s*standalone/.test(q) ? { matches: true, media: q, addEventListener() {}, removeEventListener() {} } : mm(q));
+    });
     await share.goto("http://127.0.0.1:8765/?title=Sign%20in&text=" + encodeURIComponent("Sign in https://accounts.google.com/signin?next=1") + "&locked=1");
     assert.equal(share.url(), "http://127.0.0.1:8765/", "query cleared");
-    assert.match(await share.textContent("#share-note"), /Link received.*google\.com/);
+    assert.match(await share.textContent("#share-note"), /opened with a link for.*google\.com.*can't tell/);
     assert.match(await share.textContent("#unlock-msg"), /^Locked\./, "?locked= still works beside a share");
     await share.fill("#name", id.name); await share.fill("#secret", id.secret); await share.click("#unlock-btn");
     await share.waitForSelector("#vault:not([hidden])", { timeout: 20000 });
     assert.equal(await share.inputValue("#site"), "accounts.google.com");
     assert.equal(await share.textContent("#su-site"), "google.com");
+    assert.ok(await share.isVisible("#su-link"), "unverified-address note stays beside the site");
+    await share.fill("#site", "accounts.google.com"); await share.waitForTimeout(400);
+    assert.ok(await share.isHidden("#su-link"), "typing the site clears the note");
     await share.waitForTimeout(300);
     await share.click("#reveal");
     const gv = vectorsV2[0].cases.find((v) => v.site === "accounts.google.com" && v.login === "");
