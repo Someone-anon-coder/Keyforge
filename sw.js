@@ -5,7 +5,7 @@
 // tampered cache (e.g. from another page on the same origin) is refused.
 // Don't edit the block below by hand: run `python3 tools/stamp.py` after changing any file.
 // STAMP-BEGIN
-const CACHE = "keyforge-ff33c02fc189";
+const CACHE = "keyforge-3d0308962000";
 const HASHES = {
   "index.html": "d4aee1b004d7821d021b496ffc277637e457fceb76ada87eb891fca58d656b75",
   "app.css": "86f513a3931867b9c909e1d20aa409c76da8bed0a442bc910024d3cd2c01ce39",
@@ -13,7 +13,7 @@ const HASHES = {
   "core.js": "118cd421cd93a02cc401cb526b276cbca69cd358a6b1f32ad715e9d7e3916903",
   "v2.js": "91f23dd20ff85ae8a800be2dda56b0d39971eff5d989858499ed2f06068137fe",
   "psl.js": "5b0728fe6e107d7db82d9788227fa7c4dc352007875887c1ae7a72cdc671fbee",
-  "link.js": "afeb48b7a6bdf9a7fa2308f169b8ada9b024e0abe281891a767f7675d7e2b2f2",
+  "link.js": "040765b870e45892e4aba20cbf0049ee2bb6e5d476f0e1172a7931b93f724578",
   "worker.js": "2d9dc08692dc889e66c24fa4b7c8cc7de6920668ca3005f8dc8567a7dedb86ce",
   "vendor/argon2.umd.min.js": "dcec617a2e1b700fa132d1583a186cb70611113395e869f2dd6cc82b415d3094",
   "manifest.webmanifest": "30967e7e8c10fc30b1ea5d6381a3a39298a81e8eb414244e2fb3dbac22b49461",
