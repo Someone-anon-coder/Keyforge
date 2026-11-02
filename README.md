@@ -34,7 +34,7 @@ Open the app once while online, then:
 - **Android (Chrome):** menu, then **Install app** (or **Add to Home screen**).
 - **iPhone (Safari):** Share, then **Add to Home Screen**.
 
-After that it works in airplane mode. On Android, the installed app also appears in the browser's **Share** menu. Install from a browser profile with no extensions, and choose **Never** if the browser offers to save the master secret.
+After that it works in airplane mode. On Android, the installed app also appears in the browser's **Share** menu. Install from a browser profile with no extensions, and choose **Never** if the browser offers to save the master secret. Leave **Open supported links** off for Keyforge in Chrome or Edge, or a link on a web page can open the installed app.
 
 ## Privacy and security
 
